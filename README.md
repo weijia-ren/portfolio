@@ -1,4 +1,4 @@
-# Portfolio & Knowledge Base
+# Case Studies & Knowledge Base
 
 Personal website built with Hugo. Showcases research expertise (Layer A) and serves as a structured knowledge base (Layer B).
 
@@ -54,7 +54,7 @@ git push -u origin main
 ```
 content/
 ├── about/              # Layer A: Who you are
-├── portfolio/          # Layer A: Case studies (3 starter examples)
+├── case-studies/       # Layer A: Case studies
 ├── competencies/       # Layer A: Skills grid
 ├── blog/               # Layer A: Public writing (2 starter posts)
 └── knowledge/          # Layer B: Personal second brain
@@ -85,7 +85,7 @@ tags: ["topic1", "topic2"]
 
 ### New case study
 
-Create a file in `content/portfolio/`:
+Create a file in `content/case-studies/`:
 
 ```yaml
 ---
@@ -132,6 +132,6 @@ Types: `insight` (blue), `method` (green), `warning` (yellow), `note` (gray).
 ## Content Tips
 
 - Mark posts as `draft: true` to hide them from the public site (still visible with `hugo server -D`)
-- Use `weight` in portfolio items to control display order on the home page
+- Use `weight` in case study items to control display order on the home page
 - Tags create automatic tag pages at `/tags/topic-name/`
 - All content is plain markdown — easy to edit in any text editor or IDE

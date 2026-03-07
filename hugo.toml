@@ -29,7 +29,7 @@ title = "Wren — Quantitative UXR & Data Strategist"
     weight = 1
   [[menu.main]]
     name = "Case Studies"
-    url = "/portfolio/"
+    url = "/case-studies/"
     weight = 2
   [[menu.main]]
     name = "Competencies"

@@ -49,4 +49,4 @@ This takes more planning upfront but prevents the "we shipped it and engagement 
 
 ---
 
-*Related: [Causal Impact of a UX Redesign](/portfolio/causal-impact-ux-redesign/)*
+*Related: [Causal Impact of a UX Redesign](/case-studies/causal-impact-ux-redesign/)*

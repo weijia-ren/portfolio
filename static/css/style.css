@@ -261,7 +261,7 @@ body {
 .page-content th, .page-content td { padding: 0.75rem; border: 1px solid var(--color-border); text-align: left; }
 .page-content th { background: var(--color-bg-alt); font-weight: 600; }
 
-/* === Cover Image (portfolio case studies) === */
+/* === Cover Image (case studies) === */
 .cover-image {
   width: 100%;
   max-height: 400px;
