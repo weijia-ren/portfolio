@@ -1,0 +1,54 @@
+baseURL = "https://yourusername.github.io/"
+languageCode = "en-us"
+title = "Wren — Quantitative UXR & Data Strategist"
+
+# No external theme — using custom layouts in /layouts/
+[params]
+  description = "PhD-trained quantitative researcher focused on product insight, measurement, AI evaluation, and decision intelligence."
+  author = "Wren"
+  tagline = "Quantitative Research · Behavioral Data · Decision Intelligence"
+  # Set to true to show Layer B (knowledge base) in navigation
+  showKnowledgeBase = true
+  # Social links
+  linkedin = ""
+  github = ""
+  googlescholar = ""
+  email = ""
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 1
+  [[menu.main]]
+    name = "Portfolio"
+    url = "/portfolio/"
+    weight = 2
+  [[menu.main]]
+    name = "Competencies"
+    url = "/competencies/"
+    weight = 3
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 4
+  [[menu.main]]
+    name = "Knowledge Base"
+    url = "/knowledge/"
+    weight = 5
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  method = "methods"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]

@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="container container-narrow">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  {{ .Content }}
+
+  <div class="post-list">
+    {{ range .Pages }}
+    <article class="post-item">
+      <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Summary | truncate 160 }}</p>
+      <div class="card-tags">
+        {{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
