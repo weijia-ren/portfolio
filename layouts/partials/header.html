@@ -1,6 +1,8 @@
 <header class="site-header">
   <div class="container">
-    <a href="{{ .Site.BaseURL }}" class="site-logo">{{ .Site.Params.author }}</a>
+    <a href="{{ .Site.BaseURL }}" class="site-logo">
+      <img src="{{ "images/logo.svg" | relURL }}" alt="{{ .Site.Params.author }}" class="logo-img">
+    </a>
     <nav class="site-nav">
       {{ range .Site.Menus.main }}
         <a href="{{ .URL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>

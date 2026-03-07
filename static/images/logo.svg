@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0a0a18" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark circular background -->
+  <circle cx="100" cy="100" r="98" fill="#0a0a18"/>
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.15"/>
+
+  <!-- Inner glow -->
+  <circle cx="100" cy="100" r="96" fill="url(#bgGlow)"/>
+
+  <!-- Hexagonal frame — bold -->
+  <polygon points="100,14 172,40 172,130 100,186 28,130 28,40"
+           fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Rotated inner hex -->
+  <polygon points="100,28 160,52 160,118 100,172 40,118 40,52"
+           fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.25"
+           transform="rotate(15, 100, 100)"/>
+
+  <!-- Circuit traces — bright -->
+  <line x1="12" y1="85" x2="42" y2="85" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+  <line x1="158" y1="85" x2="188" y2="85" stroke="#a78bfa" stroke-width="1.5" opacity="0.7"/>
+  <line x1="12" y1="115" x2="36" y2="115" stroke="#22d3ee" stroke-width="1" opacity="0.5"/>
+  <line x1="164" y1="115" x2="188" y2="115" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+
+  <!-- Circuit trace dots -->
+  <circle cx="12" cy="85" r="2.5" fill="#22d3ee" opacity="0.9"/>
+  <circle cx="188" cy="85" r="2.5" fill="#a78bfa" opacity="0.9"/>
+  <circle cx="12" cy="115" r="2" fill="#22d3ee" opacity="0.7"/>
+  <circle cx="188" cy="115" r="2" fill="#a78bfa" opacity="0.7"/>
+
+  <!-- W — thick bright lines -->
+  <g filter="url(#glow)">
+    <line x1="48" y1="62" x2="65" y2="138" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>
+    <line x1="65" y1="138" x2="82" y2="95" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+    <line x1="82" y1="95" x2="100" y2="125" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+    <line x1="100" y1="125" x2="118" y2="95" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+    <line x1="118" y1="95" x2="135" y2="138" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+    <line x1="135" y1="138" x2="152" y2="62" stroke="#a78bfa" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Neural cross-links — visible dashes -->
+  <line x1="48" y1="62" x2="82" y2="95" stroke="#22d3ee" stroke-width="1.2" opacity="0.5" stroke-dasharray="4,3"/>
+  <line x1="152" y1="62" x2="118" y2="95" stroke="#a78bfa" stroke-width="1.2" opacity="0.5" stroke-dasharray="4,3"/>
+  <line x1="65" y1="138" x2="135" y2="138" stroke="#38bdf8" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+  <line x1="82" y1="95" x2="118" y2="95" stroke="#a78bfa" stroke-width="1" opacity="0.4" stroke-dasharray="4,3"/>
+  <line x1="48" y1="62" x2="152" y2="62" stroke="#22d3ee" stroke-width="1" opacity="0.35" stroke-dasharray="3,4"/>
+
+  <!-- Glowing nodes at each vertex -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="48" cy="62" r="6" fill="#22d3ee"/>
+    <circle cx="65" cy="138" r="6" fill="#a78bfa"/>
+    <circle cx="82" cy="95" r="5.5" fill="#22d3ee"/>
+    <circle cx="100" cy="125" r="6" fill="#c084fc"/>
+    <circle cx="118" cy="95" r="5.5" fill="#22d3ee"/>
+    <circle cx="135" cy="138" r="6" fill="#a78bfa"/>
+    <circle cx="152" cy="62" r="6" fill="#c084fc"/>
+  </g>
+
+  <!-- Bright white centers -->
+  <circle cx="48" cy="62" r="2.5" fill="#ffffff"/>
+  <circle cx="65" cy="138" r="2.5" fill="#ffffff"/>
+  <circle cx="82" cy="95" r="2" fill="#ffffff"/>
+  <circle cx="100" cy="125" r="2.5" fill="#ffffff"/>
+  <circle cx="118" cy="95" r="2" fill="#ffffff"/>
+  <circle cx="135" cy="138" r="2.5" fill="#ffffff"/>
+  <circle cx="152" cy="62" r="2.5" fill="#ffffff"/>
+
+  <!-- Floating particles -->
+  <circle cx="38" cy="42" r="1.5" fill="#22d3ee" opacity="0.8"/>
+  <circle cx="162" cy="45" r="1.8" fill="#a78bfa" opacity="0.8"/>
+  <circle cx="28" cy="158" r="1.3" fill="#22d3ee" opacity="0.6"/>
+  <circle cx="172" cy="155" r="1.5" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="100" cy="32" r="1.5" fill="#c084fc" opacity="0.7"/>
+  <circle cx="52" cy="168" r="1.2" fill="#22d3ee" opacity="0.5"/>
+  <circle cx="148" cy="170" r="1.2" fill="#a78bfa" opacity="0.5"/>
+</svg>

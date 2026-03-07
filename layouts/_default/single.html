@@ -11,6 +11,7 @@
       </div>
       {{ end }}
     </div>
+    {{ with .Params.coverImage }}<img src="{{ . | relURL }}" alt="{{ $.Title }}" class="cover-image">{{ end }}
     {{ .Content }}
 
     {{ if eq .Section "portfolio" }}
