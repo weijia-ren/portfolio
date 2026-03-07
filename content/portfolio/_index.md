@@ -1,5 +1,5 @@
 ---
-title: "Portfolio"
+title: "Case Studies"
 subtitle: "Selected projects demonstrating quantitative research, behavioral measurement, and product insight."
 ---
 

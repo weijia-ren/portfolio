@@ -5,7 +5,7 @@
     <p class="tagline">{{ .Site.Params.tagline }}</p>
     <p class="hero-description">{{ .Site.Params.description }}</p>
     <div class="hero-cta">
-      <a href="/portfolio/" class="btn btn-primary">View My Work</a>
+      <a href="/portfolio/" class="btn btn-primary">View Case Studies</a>
       <a href="/about/" class="btn btn-secondary">About Me</a>
     </div>
   </div>
@@ -13,7 +13,7 @@
 
 <section class="home-section">
   <div class="container">
-    <h2>Selected Work</h2>
+    <h2>Case Studies</h2>
     <div class="card-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "portfolio") }}
       <div class="card">
@@ -28,7 +28,7 @@
       </div>
       {{ end }}
     </div>
-    <p class="section-more"><a href="/portfolio/">View all projects &rarr;</a></p>
+    <p class="section-more"><a href="/portfolio/">View all case studies &rarr;</a></p>
   </div>
 </section>
 
