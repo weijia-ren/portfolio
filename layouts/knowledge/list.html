@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="container">
+  <div class="kb-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="kb-grid">
+    {{ range .Sections }}
+    <a href="{{ .Permalink }}" class="kb-card">
+      {{ with .Params.icon }}<span class="kb-card-icon">{{ . }}</span>{{ end }}
+      <h3>{{ .Title }}</h3>
+      {{ with .Params.subtitle }}<p>{{ . }}</p>{{ end }}
+      <span class="kb-card-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}article{{ else }}articles{{ end }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

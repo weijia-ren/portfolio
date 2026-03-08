@@ -310,6 +310,67 @@ body {
 .competency-card li { font-size: 0.9rem; margin-bottom: 0.3rem; }
 
 /* === Knowledge Base === */
+.kb-header { text-align: center; padding: 3rem 0 2rem; }
+.kb-header h1 { font-family: var(--font-serif); font-size: 2.25rem; margin-bottom: 0.5rem; }
+.kb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding-bottom: 4rem;
+}
+.kb-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+.kb-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.kb-card:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.1);
+  transform: translateY(-3px);
+}
+.kb-card:hover::before { opacity: 1; }
+.kb-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.kb-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.kb-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 0.75rem;
+}
+.kb-card-count {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-top: auto;
+}
 .kb-section { margin-bottom: 2.5rem; }
 .kb-section h2 { font-size: 1.3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border); }
 

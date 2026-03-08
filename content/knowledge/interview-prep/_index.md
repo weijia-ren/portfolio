@@ -1,6 +1,7 @@
 ---
 title: "Interview Prep"
 subtitle: "BQ stories, product sense cases, technical questions, and frameworks for research interviews."
+icon: "🎯"
 ---
 
 Organized by interview type. Use the tags to find stories for specific competency areas.

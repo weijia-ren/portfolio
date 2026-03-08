@@ -1,4 +1,5 @@
 ---
 title: "Tools & Tech"
-subtitle: "Practical notes on tools, libraries, and technologies I use."
+subtitle: "Practical guides and reference notes on R, Python, SQL, and research tools."
+icon: "🛠️"
 ---
