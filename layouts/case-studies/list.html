@@ -3,6 +3,9 @@
   <div class="cs-header">
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="container-narrow cs-narrative">
     {{ .Content }}
   </div>
 
