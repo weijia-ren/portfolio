@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="container">
+  <div class="cs-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    {{ .Content }}
+  </div>
+
+  <div class="cs-list">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="cs-card">
+      <div class="cs-card-number">{{ .Weight }}</div>
+      <div class="cs-card-content">
+        <div class="cs-card-top">
+          {{ with .Params.categories }}<span class="cs-category">{{ index . 0 }}</span>{{ end }}
+        </div>
+        <h2>{{ .Title }}</h2>
+        <p class="cs-summary">{{ .Summary | truncate 200 }}</p>
+        <div class="cs-card-bottom">
+          <div class="cs-tags">
+            {{ range first 4 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+          </div>
+          <span class="cs-read-more">Read case study →</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

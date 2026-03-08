@@ -14,21 +14,27 @@
 <section class="home-section">
   <div class="container">
     <h2>Case Studies</h2>
-    <div class="card-grid">
-      {{ range first 6 (where .Site.RegularPages "Section" "case-studies") }}
-      <div class="card">
-        <div class="card-body">
-          {{ with .Params.icon }}<span class="card-icon">{{ . }}</span>{{ end }}
-          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p>{{ .Summary | truncate 120 }}</p>
-          <div class="card-tags">
-            {{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+    <div class="cs-list cs-list-home">
+      {{ range first 3 (where .Site.RegularPages "Section" "case-studies") }}
+      <a href="{{ .Permalink }}" class="cs-card">
+        <div class="cs-card-number">{{ .Weight }}</div>
+        <div class="cs-card-content">
+          <div class="cs-card-top">
+            {{ with .Params.categories }}<span class="cs-category">{{ index . 0 }}</span>{{ end }}
+          </div>
+          <h3>{{ .Title }}</h3>
+          <p class="cs-summary">{{ .Summary | truncate 140 }}</p>
+          <div class="cs-card-bottom">
+            <div class="cs-tags">
+              {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+            </div>
+            <span class="cs-read-more">Read →</span>
           </div>
         </div>
-      </div>
+      </a>
       {{ end }}
     </div>
-    <p class="section-more"><a href="{{ "case-studies/" | relURL }}">View all case studies &rarr;</a></p>
+    <p class="section-more"><a href="{{ "case-studies/" | relURL }}">View all 6 case studies →</a></p>
   </div>
 </section>
 

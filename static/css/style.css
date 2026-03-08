@@ -261,6 +261,111 @@ body {
 .page-content th, .page-content td { padding: 0.75rem; border: 1px solid var(--color-border); text-align: left; }
 .page-content th { background: var(--color-bg-alt); font-weight: 600; }
 
+/* === Case Studies === */
+.cs-header { text-align: center; padding: 3rem 0 1rem; }
+.cs-header h1 { font-family: var(--font-serif); font-size: 2.25rem; margin-bottom: 0.5rem; }
+.cs-header p.subtitle { color: var(--color-text-light); font-size: 1.05rem; margin-bottom: 1rem; }
+.cs-header .page-content { max-width: var(--narrow-width); margin: 0 auto; }
+
+.cs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+.cs-list-home { padding-bottom: 0; }
+
+.cs-card {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--color-text);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background: var(--color-bg);
+}
+.cs-card:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.cs-card-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #a78bfa;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), rgba(139, 92, 246, 0.06));
+  border-right: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.cs-card:hover .cs-card-number {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(139, 92, 246, 0.12));
+}
+
+.cs-card-content {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-card-top { margin-bottom: 0.4rem; }
+.cs-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #06b6d4;
+}
+
+.cs-card h2, .cs-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.cs-summary {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+}
+
+.cs-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cs-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.cs-read-more {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cs-card:hover .cs-read-more { opacity: 1; }
+
+@media (max-width: 600px) {
+  .cs-card-number { min-width: 48px; font-size: 1.35rem; }
+  .cs-card-content { padding: 1rem; }
+  .cs-card h2, .cs-card h3 { font-size: 1.05rem; }
+  .cs-read-more { opacity: 1; }
+}
+
 /* === Cover Image (case studies) === */
 .cover-image {
   width: 100%;
