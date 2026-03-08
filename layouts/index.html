@@ -5,8 +5,8 @@
     <p class="tagline">{{ .Site.Params.tagline }}</p>
     <p class="hero-description">{{ .Site.Params.description }}</p>
     <div class="hero-cta">
-      <a href="/case-studies/" class="btn btn-primary">View Case Studies</a>
-      <a href="/about/" class="btn btn-secondary">About Me</a>
+      <a href="{{ "case-studies/" | relURL }}" class="btn btn-primary">View Case Studies</a>
+      <a href="{{ "about/" | relURL }}" class="btn btn-secondary">About Me</a>
     </div>
   </div>
 </section>
@@ -28,7 +28,7 @@
       </div>
       {{ end }}
     </div>
-    <p class="section-more"><a href="/case-studies/">View all case studies &rarr;</a></p>
+    <p class="section-more"><a href="{{ "case-studies/" | relURL }}">View all case studies &rarr;</a></p>
   </div>
 </section>
 
@@ -44,7 +44,7 @@
       </article>
       {{ end }}
     </div>
-    <p class="section-more"><a href="/blog/">Read more &rarr;</a></p>
+    <p class="section-more"><a href="{{ "blog/" | relURL }}">Read more &rarr;</a></p>
   </div>
 </section>
 {{ end }}

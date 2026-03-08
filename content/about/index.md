@@ -43,4 +43,4 @@ I believe the best research is:
 
 ---
 
-*Interested in working together or want to chat? [Get in touch](/contact/).*
+*Interested in working together or want to chat? Reach out via LinkedIn or email.*

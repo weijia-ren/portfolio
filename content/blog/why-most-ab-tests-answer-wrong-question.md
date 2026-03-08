@@ -49,4 +49,4 @@ This takes more planning upfront but prevents the "we shipped it and engagement 
 
 ---
 
-*Related: [Data-Driven Optimization of Video Placement](/case-studies/video-placement-optimization/)*
+*Related: [Data-Driven Optimization of Video Placement]({{< ref "/case-studies/video-placement-optimization" >}})*
