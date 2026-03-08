@@ -1,9 +1,12 @@
 ---
 title: "Case Studies"
-subtitle: "Selected projects demonstrating quantitative research, behavioral measurement, and product insight."
+subtitle: "A connected research arc demonstrating end-to-end measurement expertise."
 ---
 
-Browse my work by project. Each case study follows the structure:
-**Context → Question → Method → Findings → Impact**.
+These six studies represent a complete research arc:
 
-All examples have been sanitized to protect confidential data.
+**Build the measurement system** (Case 1) → **Understand user needs** (Cases 2–3) → **Benchmark against competition** (Case 4) → **Guide specific product decisions** (Case 5) → **Evolve the metrics** (Case 6)
+
+Together they demonstrate expertise across survey design, behavioral data analysis, statistical modeling, metric development, and translating research into product strategy.
+
+All examples have been sanitized to protect confidential information.

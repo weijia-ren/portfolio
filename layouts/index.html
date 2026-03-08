@@ -15,7 +15,7 @@
   <div class="container">
     <h2>Case Studies</h2>
     <div class="card-grid">
-      {{ range first 3 (where .Site.RegularPages "Section" "case-studies") }}
+      {{ range first 6 (where .Site.RegularPages "Section" "case-studies") }}
       <div class="card">
         <div class="card-body">
           {{ with .Params.icon }}<span class="card-icon">{{ . }}</span>{{ end }}

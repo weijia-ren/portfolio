@@ -55,4 +55,4 @@ UX researchers are uniquely positioned to contribute to AI evaluation because we
 
 ---
 
-*Related: [AI Recommendation Quality Study](/case-studies/ai-recommendation-quality/)*
+*Related: [Evolving Engagement Metrics Through User Feedback Calibration](/case-studies/evolving-engagement-metrics/)*

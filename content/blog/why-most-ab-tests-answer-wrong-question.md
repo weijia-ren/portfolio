@@ -49,4 +49,4 @@ This takes more planning upfront but prevents the "we shipped it and engagement 
 
 ---
 
-*Related: [Causal Impact of a UX Redesign](/case-studies/causal-impact-ux-redesign/)*
+*Related: [Data-Driven Optimization of Video Placement](/case-studies/video-placement-optimization/)*
