@@ -1,6 +1,6 @@
 ---
 title: "Building a Real-Time Search Quality Measurement System"
-date: 2026-07-10
+date: 2026-06-05
 draft: false
 tags: ["survey design", "instrumentation", "metric validation", "behavioral data linkage", "longitudinal tracking"]
 categories: ["Measurement & Frameworks"]

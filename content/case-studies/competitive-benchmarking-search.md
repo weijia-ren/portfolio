@@ -1,6 +1,6 @@
 ---
 title: "Competitive Benchmarking of Search Pain Points"
-date: 2026-06-05
+date: 2026-07-03
 draft: false
 tags: ["competitive benchmarking", "pain point sizing", "survey module design", "cross-demographic analysis"]
 categories: ["Strategic Research"]

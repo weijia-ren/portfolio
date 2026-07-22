@@ -1,6 +1,6 @@
 ---
 title: "Designing a Survey Dashboard for Stakeholder Decision-Making"
-date: 2026-07-03
+date: 2026-07-10
 draft: false
 tags: ["survey dashboard", "data visualization", "executive reporting", "stakeholder communication", "self-service analytics"]
 categories: ["Data Visualization"]
