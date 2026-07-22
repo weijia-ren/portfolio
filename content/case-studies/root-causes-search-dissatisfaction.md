@@ -1,6 +1,6 @@
 ---
 title: "Diagnosing Root Causes of Search Dissatisfaction"
-date: 2026-06-15
+date: 2026-06-26
 draft: false
 tags: ["root cause analysis", "user segmentation", "expectation mapping", "mixed methods", "quality framework"]
 categories: ["Product Research"]

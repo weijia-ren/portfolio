@@ -1,6 +1,6 @@
 ---
 title: "Understanding Search Motivations to Inform Content Strategy"
-date: 2026-07-01
+date: 2026-06-19
 draft: false
 tags: ["JTBD", "clustering analysis", "cross-market research", "content strategy", "search intent"]
 categories: ["Strategic Research"]
