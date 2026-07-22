@@ -10,10 +10,10 @@ title = "Wren — Quantitative UXR & Data Strategist"
   # Set to true to show Layer B (knowledge base) in navigation
   showKnowledgeBase = true
   # Social links
-  linkedin = ""
+  linkedin = "https://www.linkedin.com/in/weijiaren"
   github = ""
   googlescholar = ""
-  email = ""
+  email = "osurwj@gmail.com"
 
 [markup]
   [markup.goldmark]
@@ -43,6 +43,10 @@ title = "Wren — Quantitative UXR & Data Strategist"
     name = "Blog"
     url = "/blog/"
     weight = 5
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 6
 
 [taxonomies]
   tag = "tags"
