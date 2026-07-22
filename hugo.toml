@@ -43,10 +43,6 @@ title = "Wren — Quantitative UXR & Data Strategist"
     name = "Blog"
     url = "/blog/"
     weight = 5
-  [[menu.main]]
-    name = "Knowledge Base"
-    url = "/knowledge/"
-    weight = 6
 
 [taxonomies]
   tag = "tags"

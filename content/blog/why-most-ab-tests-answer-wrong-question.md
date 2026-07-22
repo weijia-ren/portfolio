@@ -1,6 +1,6 @@
 ---
 title: "Why Most A/B Tests Answer the Wrong Question"
-date: 2025-09-15
+date: 2026-06-15
 draft: false
 tags: ["experimentation", "A/B testing", "methodology"]
 categories: ["Methods"]
@@ -14,10 +14,10 @@ Most A/B tests are designed to answer "Is version B better than version A?" But 
 
 What product teams actually need to know:
 
-1. **For whom** is B better? (heterogeneous effects)
-2. **Why** is B better? (mechanism, not just outcome)
-3. **How much better** — is the effect practically meaningful? (effect size, not just significance)
-4. **How durable** is the effect? (novelty vs. sustained impact)
+1. **For whom** is B better? (heterogeneous effects).
+2. **Why** is B better? (mechanism, not just outcome).
+3. **How much better** — is the effect practically meaningful? (effect size, not just significance).
+4. **How durable** is the effect? (novelty vs. sustained impact).
 
 A p-value alone answers none of these.
 
@@ -25,8 +25,8 @@ A p-value alone answers none of these.
 
 Standard A/B tests report an Average Treatment Effect (ATE). But averages hide critical variation:
 
-- A redesign might hurt power users (-5%) while helping new users (+15%)
-- The ATE shows +5%, everyone celebrates, and the most valuable segment churns
+- A redesign might hurt power users (-5%) while helping new users (+15%).
+- The ATE shows +5%, everyone celebrates, and the most valuable segment churns.
 
 This is why heterogeneous treatment effect analysis matters. Tools like causal forests or simple interaction models can reveal segment-level effects that the ATE obscures.
 
@@ -49,4 +49,3 @@ This takes more planning upfront but prevents the "we shipped it and engagement 
 
 ---
 
-*Related: [Data-Driven Optimization of Video Placement]({{< ref "/case-studies/video-placement-optimization" >}})*

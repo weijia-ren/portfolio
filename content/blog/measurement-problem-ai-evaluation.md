@@ -1,6 +1,6 @@
 ---
 title: "The Measurement Problem in AI Evaluation"
-date: 2025-07-10
+date: 2026-07-10
 draft: false
 tags: ["AI evaluation", "measurement", "psychometrics"]
 categories: ["AI & Measurement"]
@@ -35,10 +35,10 @@ These are measurement science problems, and the field of psychometrics has been 
 
 I've been thinking about a layered evaluation approach:
 
-1. **Capability layer**: Can the system do the task? (benchmarks)
-2. **Reliability layer**: Does it do the task consistently? (stability testing)
-3. **Validity layer**: Does performance on the benchmark predict real-world value? (ecological validity)
-4. **Human layer**: Do users trust, use, and benefit from it? (UXR)
+1. **Capability layer**: Can the system do the task? (benchmarks).
+2. **Reliability layer**: Does it do the task consistently? (stability testing).
+3. **Validity layer**: Does performance on the benchmark predict real-world value? (ecological validity).
+4. **Human layer**: Do users trust, use, and benefit from it? (UXR).
 
 Each layer builds on the previous one. Skipping to layer 4 without layer 1 is premature; stopping at layer 1 is insufficient.
 
@@ -46,10 +46,10 @@ Each layer builds on the previous one. Skipping to layer 4 without layer 1 is pr
 
 UX researchers are uniquely positioned to contribute to AI evaluation because we already:
 
-- Know how to measure subjective constructs (satisfaction, trust, perceived quality)
-- Understand validity and reliability in measurement
-- Can design studies that connect system behavior to user outcomes
-- Think about the full user experience, not just task accuracy
+- Know how to measure subjective constructs (satisfaction, trust, perceived quality).
+- Understand validity and reliability in measurement.
+- Can design studies that connect system behavior to user outcomes.
+- Think about the full user experience, not just task accuracy.
 
 > The gap isn't in AI capability. It's in our ability to measure whether that capability translates to real human value.
 

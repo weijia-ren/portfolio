@@ -1,11 +1,11 @@
 ---
 title: "Diagnosing Root Causes of Search Dissatisfaction"
-date: 2025-04-01
+date: 2026-06-15
 draft: false
 tags: ["root cause analysis", "user segmentation", "expectation mapping", "mixed methods", "quality framework"]
 categories: ["Product Research"]
 icon: "🔬"
-weight: 3
+weight: 4
 ---
 
 ## Context
@@ -18,26 +18,27 @@ What are the distinct reasons search results fail for users, and do different se
 
 ## Approach
 
-Designed a detailed quality survey with layered follow-up questions probing the reasons behind useful and unuseful ratings:
+Designed a detailed quality survey with layered follow-up questions probing the reasons behind useful and unuseful ratings, then structured the measurement around a search quality UXR framework:
 
-- **Layered follow-up design**: After rating usefulness, users answered context-specific follow-up questions about *why* — including evaluation of individual search results, not just the overall page
-- **Motivation-based segmentation**: Used hierarchical clustering to segment users by search motivation (building on the motivation taxonomy from prior research)
-- **Expectation mapping**: Mapped distinct quality expectations per motivation segment to identify what "good" looks like for different types of searches
-- **Triangulation with behavioral data**: Cross-referenced stated dissatisfaction reasons with behavioral signals (dwell time, scroll depth, reformulation) to separate real quality problems from measurement artifacts
+- **Search quality UXR framework**: Developed a framework that decomposed user-perceived search quality into distinct dimensions — including discovery, relevance, freshness/relatability, and experience quality — to create a clearer structure for navigation, measurement, and prioritization.
+- **Layered follow-up design**: Used the framework to guide follow-up questions that isolated whether dissatisfaction came from the results themselves, the search experience, or the broader match between intent and content.
+- **Motivation-based segmentation**: Used hierarchical clustering to segment users by search motivation (building on the motivation taxonomy from prior research).
+- **Expectation mapping**: Mapped distinct quality expectations per motivation segment to identify what "good" looks like for different types of searches.
+- **Triangulation with behavioral data**: Cross-referenced stated dissatisfaction reasons with behavioral signals (dwell time, scroll depth, reformulation) to separate real quality problems from measurement artifacts.
 
 ## Key Findings
 
-1. **Quality expectations are motivation-dependent**: Different search types demanded fundamentally different result attributes — high precision for people searches, variety and freshness for discovery searches, exact-match accuracy for refinding
-2. **True problems vs. measurement problems**: Distinguished between scenarios where both satisfaction and engagement were low (true quality problem requiring product fixes) versus scenarios where satisfaction was high but engagement was low (measurement problem requiring metric improvement) — a critical distinction for resource allocation
-3. **Intent-specific quality gaps**: Identified specific intents where quality was systematically weak, enabling targeted optimization rather than one-size-fits-all approaches
-4. **Actionable pain point categories**: Top failure reasons mapped to concrete product levers: relevance model tuning, content type diversification, freshness signals, and personalization improvements
+1. **Quality expectations are motivation-dependent**: Different search types demanded fundamentally different result attributes — high precision for people searches, variety and freshness for discovery searches, exact-match accuracy for refinding.
+2. **True problems vs. measurement problems**: Distinguished between scenarios where both satisfaction and engagement were low (true quality problem requiring product fixes) versus scenarios where satisfaction was high but engagement was low (measurement problem requiring metric improvement) — a critical distinction for resource allocation.
+3. **Intent-specific quality gaps**: Identified specific intents where quality was systematically weak, enabling targeted optimization rather than one-size-fits-all approaches.
+4. **Actionable pain point categories**: Top failure reasons mapped to concrete product levers: relevance model tuning, content type diversification, freshness signals, and personalization improvements.
 
 ## Impact
 
-- **Shifted from global to targeted optimization**: The motivation-based quality framework moved the team from optimizing a single quality score to addressing intent-specific gaps
-- **Clarified the metric vs. product investment question**: By distinguishing true quality problems from measurement problems, helped the team allocate resources between "fix the product" and "fix the metric"
-- **Created a reusable diagnostic methodology**: The layered survey approach became the standard template for investigating quality drops
-- **Directly informed the product roadmap**: Intent-specific quality gaps were prioritized as distinct workstreams
+- **Shifted from global to targeted optimization**: The motivation-based quality framework moved the team from optimizing a single quality score to addressing intent-specific gaps.
+- **Clarified the metric vs. product investment question**: By distinguishing true quality problems from measurement problems, helped the team allocate resources between "fix the product" and "fix the metric".
+- **Created a reusable diagnostic methodology**: The layered survey approach became the standard template for investigating quality drops.
+- **Directly informed the product roadmap**: Intent-specific quality gaps were prioritized as distinct workstreams.
 
 ## Methods & Tools
 

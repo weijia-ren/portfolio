@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "About Me - Weijia Ren"
 layout: "page"
 type: "page"
 ---
@@ -10,36 +10,33 @@ I'm a PhD-trained quantitative researcher with deep expertise in behavioral meas
 
 My background combines:
 
-- **Statistical foundations** — experimental design, causal inference, Bayesian methods, psychometrics
-- **UX research practice** — mixed-methods studies at scale, survey design, behavioral analytics
-- **Applied AI thinking** — evaluation frameworks for AI systems, decision intelligence, measurement strategy
+- **Statistical foundations** — experimental design, causal inference, Bayesian methods, psychometrics.
+- **UX research practice** — mixed-methods studies at scale, survey design, behavioral analytics.
+- **Applied AI thinking** — evaluation frameworks for AI systems, decision intelligence, measurement strategy.
 
 ## What I Do
 
 I help product teams make better decisions by turning complex behavioral data into clear, actionable insight. My work typically involves:
 
-- Designing measurement frameworks that capture what actually matters
-- Running quantitative studies (experiments, surveys, log analysis) that produce reliable evidence
-- Building analytical approaches that connect user behavior to product outcomes
-- Evaluating AI and decision systems for fairness, quality, and user impact
+- Designing measurement frameworks that capture what actually matters.
+- Running quantitative studies (experiments, surveys, log analysis) that produce reliable evidence.
+- Building analytical approaches that connect user behavior to product outcomes.
+- Evaluating AI and decision systems for fairness, quality, and user impact.
 
 ## My Approach
 
 I believe the best research is:
 
-1. **Grounded in theory** — using established frameworks from behavioral science, psychometrics, and statistics
-2. **Rigorous in method** — choosing the right design, not the easiest one
-3. **Clear in communication** — making complex findings accessible to decision-makers
-4. **Connected to impact** — every study should inform a real decision
+1. **Grounded in theory** — using established frameworks from behavioral science, psychometrics, and statistics.
+2. **Rigorous in method** — choosing the right design, not the easiest one.
+3. **Clear in communication** — making complex findings accessible to decision-makers.
+4. **Connected to impact** — every study should inform a real decision.
 
 ## Background
 
-<!-- Customize the details below -->
-
-- **PhD** in [Your Field], [University]
-- **Current role**: [Title] at [Company]
-- Previously: [Brief prior roles]
-- Publications and conference talks in [areas]
+- **PhD** in Quantitative Research, Evaluation and Measurement, The Ohio State University.
+- **Work Experience**: Meta, Westat.
+- **LinkedIn**: [weijiaren](https://www.linkedin.com/in/weijiaren).
 
 ---
 

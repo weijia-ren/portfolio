@@ -1,6 +1,6 @@
 ---
 title: "Building a Real-Time Search Quality Measurement System"
-date: 2025-06-01
+date: 2026-07-15
 draft: false
 tags: ["survey design", "instrumentation", "metric validation", "behavioral data linkage", "longitudinal tracking"]
 categories: ["Measurement & Frameworks"]
@@ -18,26 +18,26 @@ Can we build a scalable, always-on measurement system that directly captures per
 
 ## Approach
 
-Designed and launched a large-scale daily in-product survey embedded directly on the search results page, collecting hundreds of thousands of responses per day across global markets. Led the full research lifecycle:
+Designed and launched a large-scale daily in-product survey (n = 150k daily responses) embedded directly on the search results page, collecting hundreds of thousands of responses per day across global markets. Led the full research lifecycle:
 
-- **Survey design & instrumentation**: Created a lightweight usefulness rating embedded in the search experience, optimized for minimal disruption and high response rates
-- **Behavioral log linkage**: Connected survey responses to detailed search session logs, enabling analysis of quality by query type, ranking position, result format, and user segment
-- **Automated dashboards**: Built continuous quality tracking infrastructure with automated alerting for quality movements
-- **Validation study**: Correlated the new usefulness signal with downstream retention metrics to confirm the survey captured real user value, not just stated preference
+- **Survey design & instrumentation**: Created a lightweight usefulness rating embedded in the search experience, and used cognitive testing to refine the survey wording, cooldown period, and trigger placement to reduce response burden and improve measurement quality. Validated the design across international markets to account for language and cultural differences in implementation.
+- **Behavioral log linkage**: Connected survey responses to detailed search session logs, enabling analysis of quality by query type, ranking position, result format, and user segment.
+- **Automated dashboards**: Built continuous quality tracking infrastructure with automated alerting for quality movements.
+- **Validation study**: Correlated the new usefulness signal with downstream retention metrics to confirm the survey captured real user value, not just stated preference.
 
 ## Key Findings
 
-1. **Leading indicator confirmed**: The usefulness signal predicted downstream retention — and gains in perceived usefulness for infrequent searchers had the strongest retention effect, identifying a high-leverage growth audience
-2. **Engagement ≠ satisfaction**: A majority of sessions with no measurable engagement (no clicks, no actions) were still rated as useful by users. The engagement metric was systematically underestimating quality for information-seeking and browsing searches
-3. **Sensitivity to product changes**: The system was sensitive enough to detect the impact of ranking algorithm changes and UI redesigns on perceived quality — often before engagement metrics moved
-4. **Global consistency**: The measurement system produced stable, reliable signals across markets, enabling cross-market quality comparisons
+1. **Leading indicator confirmed**: The usefulness signal predicted downstream retention — and gains in perceived usefulness for infrequent searchers had the strongest retention effect, identifying a high-leverage growth audience.
+2. **Engagement ≠ satisfaction**: A majority of sessions with no measurable engagement (no clicks, no actions) were still rated as useful by users. The engagement metric was systematically underestimating quality for information-seeking and browsing searches.
+3. **Sensitivity to product changes**: The system was sensitive enough to detect the impact of ranking algorithm changes and UI redesigns on perceived quality — often before engagement metrics moved.
+4. **Global consistency**: The measurement system produced stable, reliable signals across markets, enabling cross-market quality comparisons.
 
 ## Impact
 
-- **Became the primary user-centric quality metric** for the search product, complementing engagement-based metrics with a direct satisfaction signal
-- **Detected quality issues invisible to engagement metrics**, enabling the team to identify and fix problems that would have gone unnoticed
-- **Informed retention strategy** by identifying that quality improvements for infrequent searchers had outsized retention impact
-- **Established ongoing infrastructure** that enabled all subsequent quality research (root cause analysis, competitive benchmarking, video optimization)
+- **Became the primary user-centric quality metric** for the search product, complementing engagement-based metrics with a direct satisfaction signal.
+- **Detected quality issues invisible to engagement metrics**, enabling the team to identify and fix problems that would have gone unnoticed.
+- **Informed retention strategy** by identifying that quality improvements for infrequent searchers had outsized retention impact.
+- **Established ongoing infrastructure** that enabled all subsequent quality research (root cause analysis, competitive benchmarking, video optimization).
 
 ## Methods & Tools
 
@@ -45,4 +45,4 @@ Designed and launched a large-scale daily in-product survey embedded directly on
 
 ## What This Demonstrates
 
-This project shows the ability to build measurement infrastructure, not just run individual studies. The system became foundational — every subsequent case study in this portfolio builds on the data and methodology established here. It required survey methodology expertise, engineering collaboration for instrumentation, and statistical rigor to validate the metric against real outcomes.
+This project shows how to turn a measurement gap into a durable research system: defining the right survey signal, instrumenting it carefully, and validating it against real outcomes. It required survey methodology, experimentation with survey placement and wording, and statistical rigor to build a trusted quality metric that product teams could use over time.

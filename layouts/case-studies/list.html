@@ -5,9 +5,11 @@
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
   </div>
 
+  {{ with .Content }}
   <div class="container-narrow cs-narrative">
-    {{ .Content }}
+    {{ . }}
   </div>
+  {{ end }}
 
   <div class="cs-list">
     {{ range .Pages }}

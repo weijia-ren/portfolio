@@ -1,0 +1,875 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive Survey Dashboard Example</title>
+<style>
+  :root {
+    --bg: #eef4ff;
+    --bg2: #f7fbff;
+    --ink: #12304a;
+    --muted: #61738a;
+    --panel: rgba(255,255,255,.92);
+    --line: rgba(18, 48, 74, .14);
+    --shadow: 0 24px 70px rgba(19, 51, 82, .14);
+    --blue: #4f8df7;
+    --blue2: #8fc5ff;
+    --teal: #2fc7b5;
+    --violet: #8b7cf6;
+    --orange: #ffb257;
+    --pink: #ff7eb6;
+    --green: #58cc7a;
+  }
+
+  * { box-sizing: border-box; }
+  html { overflow: hidden; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: transparent;
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .frame {
+    width: 1440px;
+    height: 1300px;
+    margin: 0;
+    padding: 24px;
+  }
+
+  .window {
+    height: 100%;
+    border-radius: 28px;
+    overflow: visible;
+    background: rgba(255,255,255,.75);
+    border: 1px solid rgba(18,48,74,.12);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 26px;
+    background: linear-gradient(90deg, #173c60, #205d91 55%, #2e78bf);
+    color: white;
+  }
+
+  .title-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .title { font-size: 26px; font-weight: 800; letter-spacing: .2px; }
+  .subtitle { font-size: 14px; opacity: .88; }
+
+  .filters {
+    display: grid;
+    gap: 10px;
+    justify-items: end;
+    max-width: 620px;
+  }
+
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .filter-pill {
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.22);
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+  }
+
+  .filter-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.20);
+    border: 1px solid rgba(255,255,255,.34);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.16);
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+  }
+  .filter-select .filter-label {
+    opacity: .76;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .filter-select .filter-value {
+    font-weight: 800;
+  }
+  .filter-select .chevron {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.18);
+    font-size: 11px;
+  }
+
+  .filter-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.20);
+    border: 1px solid rgba(255,255,255,.34);
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+  }
+  .filter-control label {
+    opacity: .78;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .filter-control select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    border-radius: 999px;
+    padding: 4px 24px 4px 8px;
+    color: #fff;
+    font-weight: 800;
+    background:
+      linear-gradient(45deg, transparent 50%, rgba(255,255,255,.9) 50%) calc(100% - 12px) 52% / 6px 6px no-repeat,
+      linear-gradient(135deg, rgba(255,255,255,.9) 50%, transparent 50%) calc(100% - 8px) 52% / 6px 6px no-repeat,
+      rgba(255,255,255,.08);
+    cursor: pointer;
+  }
+  .filter-control select option { color: #12304a; background: #fff; }
+  .interaction-note {
+    margin: 0 18px 14px;
+    padding: 10px 14px;
+    border: 1px solid #d9e6f5;
+    background: #f7fbff;
+    color: #49657f;
+    border-radius: 14px;
+    font-size: 13px;
+  }
+
+  .content { padding: 14px 18px 18px; }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .kpi {
+    position: relative;
+    padding: 14px 16px 13px;
+    border-radius: 20px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 28px rgba(18,48,74,.06);
+    overflow: hidden;
+  }
+  .kpi::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--blue), var(--teal), var(--violet), var(--orange));
+  }
+  .kpi .label {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+  }
+  .kpi .value {
+    margin-top: 12px;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 900;
+    color: #12304a;
+  }
+  .kpi .delta {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #35516b;
+    background: #f4f9ff;
+    border: 1px solid #d7e8ff;
+    padding: 7px 10px;
+    border-radius: 999px;
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1.25fr .95fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: 0 10px 28px rgba(18,48,74,.06);
+    padding: 14px;
+    min-height: 210px;
+  }
+
+  .panel h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .sub {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .trend-wrap {
+    margin-top: 14px;
+    border-radius: 18px;
+    border: 1px solid #d9e6f5;
+    background:
+      linear-gradient(180deg, rgba(246,250,255,.9), rgba(255,255,255,.94)),
+      repeating-linear-gradient(0deg, transparent 0 38px, rgba(95,125,156,.08) 38px 39px);
+    padding: 10px 12px 10px;
+  }
+
+  .trend-legend {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 999px; display: inline-block; margin-right: 6px;
+  }
+
+  .axis-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .segment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .segment-card {
+    border-radius: 18px;
+    border: 1px solid #d9e6f5;
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    padding: 12px;
+    min-height: 132px;
+  }
+
+  .segment-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .segment-title { font-size: 13px; font-weight: 700; }
+  .segment-chip {
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: #eef5ff;
+    color: #245fa0;
+    font-size: 11px;
+    border: 1px solid #d7e8ff;
+  }
+
+  .segment-chart { display: grid; gap: 7px; }
+  .segment-bar-row {
+    display: grid;
+    grid-template-columns: 47px 1fr 38px;
+    gap: 8px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .segment-bar-row strong { color: var(--ink); text-align: right; font-size: 12px; }
+  .bar-track {
+    position: relative;
+    height: 14px;
+    border-radius: 999px;
+    background: #eaf1f8;
+    overflow: visible;
+  }
+  .bar-value {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--blue), var(--blue2));
+  }
+  .ci-line {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    transform: translateY(-50%);
+    background: #173c60;
+    border-radius: 999px;
+    z-index: 2;
+  }
+  .ci-line::before, .ci-line::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    width: 2px;
+    height: 10px;
+    background: #173c60;
+    border-radius: 2px;
+  }
+  .ci-line::before { left: 0; }
+  .ci-line::after { right: 0; }
+  .ci-note { margin-top: 10px; font-size: 10px; color: var(--muted); text-align: right; }
+
+  .analysis-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .summary-chip {
+    padding: 11px;
+    border-radius: 14px;
+    border: 1px solid #d9e6f5;
+    background: #f7fbff;
+  }
+  .summary-chip span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .summary-chip strong { display: block; margin-top: 5px; font-size: 16px; color: var(--ink); }
+  .driver-list, .text-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 12px;
+  }
+  .driver-item, .text-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 9px 12px;
+    border-radius: 14px;
+    border: 1px solid #d9e6f5;
+    background: linear-gradient(180deg, #fff, #f8fbff);
+  }
+  .driver-name { font-size: 14px; font-weight: 600; }
+  .driver-meta { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .importance {
+    min-width: 120px;
+    text-align: right;
+    color: #173c60;
+    font-weight: 800;
+    letter-spacing: .08em;
+  }
+  .bar-fill {
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--blue), var(--violet), var(--pink));
+    box-shadow: 0 0 0 1px rgba(18,48,74,.05);
+    margin-top: 8px;
+  }
+  .driver-stats {
+    min-width: 116px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    text-align: right;
+  }
+  .driver-stats span { font-size: 9px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .driver-stats strong { display: block; margin-top: 3px; color: var(--ink); font-size: 13px; }
+  .action-tag {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #245fa0;
+    background: #edf6ff;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    background: #f0f7ff;
+    color: #245fa0;
+    border: 1px solid #d7e8ff;
+  }
+
+  .quote {
+    font-style: italic;
+    color: #334e68;
+  }
+  .theme-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .theme-quote {
+    display: block;
+    margin-top: 6px;
+    max-width: 250px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #49657f;
+    font-style: italic;
+  }
+  .topic-meter {
+    width: 96px;
+    height: 8px;
+    border-radius: 999px;
+    background: #eaf1f8;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .topic-meter span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--violet), var(--pink));
+  }
+  .sentiment {
+    display: inline-flex;
+    gap: 5px;
+    margin-left: 8px;
+  }
+  .sentiment span { width: 8px; height: 8px; border-radius: 999px; display: inline-block; }
+
+  .quality-card {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 18px;
+    border: 1px solid #d9e6f5;
+    background: linear-gradient(180deg, #f8fcff, #ffffff);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+  }
+
+  .quality-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(18,48,74,.08);
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .quality-row:last-child { border-bottom: none; }
+
+  .quality-value { font-weight: 800; color: #173c60; text-align: right; max-width: 330px; }
+
+  .chart-label {
+    font-size: 12px;
+    fill: var(--muted);
+  }
+
+  .grid-lines { stroke: rgba(95,125,156,.16); stroke-width: 1; }
+  .band { fill: rgba(79,141,247,.16); }
+  .trend-line { fill: none; stroke: url(#lineGrad); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+  .trend-point { fill: #ffffff; stroke: #2e78bf; stroke-width: 3; cursor: help; }
+  .trend-point:hover { stroke-width: 4; }
+  .avg-line { stroke: #2fc7b5; stroke-width: 3.5; stroke-dasharray: 8 8; }
+  .launch-line { stroke: #ff7eb6; stroke-width: 2; stroke-dasharray: 6 6; }
+  .launch-tag {
+    font-size: 12px;
+    fill: #ff5b9f;
+    font-weight: 700;
+  }
+
+  @media (max-width: 1500px) {
+    .frame { transform-origin: top left; width: 1440px; }
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="window">
+      <div class="topbar">
+        <div class="title-wrap">
+          <div class="title">Survey Dashboard</div>
+          <div class="subtitle">Bright, stakeholder-friendly reporting view with trend analysis, segments, drivers, and open-text themes</div>
+        </div>
+        <div class="filters" aria-label="Dashboard filters">
+          <div class="filter-row">
+            <div class="filter-control"><label for="estimateSelect">Estimate</label><select id="estimateSelect"><option selected>Overall satisfaction</option><option>Trust score</option><option>Ease of use</option><option>Recommendation intent</option></select></div>
+            <div class="filter-control"><label for="waveSelect">Wave</label><select id="waveSelect"><option selected>Current</option><option>Prior wave</option><option>Last 4 waves</option><option>Year to date</option></select></div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-control"><label for="segmentSelect">Segment</label><select id="segmentSelect"><option selected>All Users</option><option>New users</option><option>Power users</option><option>Mobile users</option></select></div>
+            <div class="filter-control"><label for="regionSelect">Region</label><select id="regionSelect"><option selected>Global</option><option>AMER</option><option>EMEA</option><option>APAC</option></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="interaction-note" id="interactionNote">Interactive example: change the estimate, wave, segment, or region filters to update the dashboard summary.</div>
+        <div class="kpis">
+          <div class="kpi">
+            <div class="label" id="primaryMetricLabel">Overall Satisfaction</div>
+            <div class="value" id="primaryMetricValue">78%</div>
+            <div class="delta" id="primaryMetricDelta">▲ 3 pts vs prior wave</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Response Volume</div>
+            <div class="value" id="volumeValue">12.4K</div>
+            <div class="delta" id="volumeDelta">Daily average</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Benchmark Gap</div>
+            <div class="value" id="gapValue">+1.8</div>
+            <div class="delta" id="gapDelta">vs target</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Sample Quality</div>
+            <div class="value" id="qualityValue">Good</div>
+            <div class="delta" id="qualityDelta">n=1,240 / 10% RR</div>
+          </div>
+        </div>
+
+        <div class="main-grid">
+          <div class="panel">
+            <h3>Trend over time</h3>
+            <div class="sub">Trend line with shaded confidence interval band, rolling average, and launch annotation</div>
+            <div class="trend-wrap">
+              <div class="trend-legend">
+                <span><span class="legend-dot" style="background: var(--blue);"></span>Trend line</span>
+                <span><span class="legend-dot" style="background: rgba(79,141,247,.18); border: 1px solid rgba(79,141,247,.25);"></span>Confidence interval</span>
+                <span><span class="legend-dot" style="background: var(--teal);"></span>Rolling average</span>
+              </div>
+              <svg viewBox="0 0 860 290" width="100%" height="240" role="img" aria-label="Trend line with confidence interval band">
+                <defs>
+                  <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#2e78bf"/>
+                    <stop offset="55%" stop-color="#4f8df7"/>
+                    <stop offset="100%" stop-color="#8b7cf6"/>
+                  </linearGradient>
+                </defs>
+
+                <g>
+                  <line class="grid-lines" x1="50" y1="55" x2="810" y2="55" />
+                  <line class="grid-lines" x1="50" y1="125" x2="810" y2="125" />
+                  <line class="grid-lines" x1="50" y1="195" x2="810" y2="195" />
+                  <line class="grid-lines" x1="50" y1="265" x2="810" y2="265" />
+                  <text class="chart-label" x="12" y="60">80%</text>
+                  <text class="chart-label" x="12" y="130">75%</text>
+                  <text class="chart-label" x="12" y="200">70%</text>
+                  <text class="chart-label" x="12" y="270">65%</text>
+                </g>
+
+                <path id="confidenceBand" class="band" d="M 70 202 L 170 188 L 270 168 L 370 150 L 470 132 L 570 118 L 670 106 L 770 96 L 770 164 L 670 174 L 570 182 L 470 196 L 370 212 L 270 228 L 170 244 L 70 258 Z"/>
+                <path id="avgLine" class="avg-line" d="M 70 228 L 170 210 L 270 196 L 370 178 L 470 162 L 570 148 L 670 138 L 770 126"/>
+                <path id="trendLine" class="trend-line" d="M 70 232 L 170 216 L 270 198 L 370 181 L 470 166 L 570 150 L 670 140 L 770 129"/>
+
+                <circle class="trend-point" cx="70" cy="232" r="5"/>
+                <circle class="trend-point" cx="170" cy="216" r="5"/>
+                <circle class="trend-point" cx="270" cy="198" r="5"/>
+                <circle class="trend-point" cx="370" cy="181" r="5"/>
+                <circle class="trend-point" cx="470" cy="166" r="5"/>
+                <circle class="trend-point" cx="570" cy="150" r="5"/>
+                <circle class="trend-point" cx="670" cy="140" r="5"/>
+                <circle class="trend-point" cx="770" cy="129" r="5"/>
+
+                <line class="launch-line" x1="690" y1="35" x2="690" y2="266"/>
+                <text class="launch-tag" x="702" y="52">Launch</text>
+                <text class="chart-label trend-axis-label" x="70" y="286">Mon 1/5</text>
+                <text class="chart-label trend-axis-label" x="165" y="286">Mon 1/12</text>
+                <text class="chart-label trend-axis-label" x="265" y="286">Mon 1/19</text>
+                <text class="chart-label trend-axis-label" x="365" y="286">Mon 1/26</text>
+                <text class="chart-label trend-axis-label" x="465" y="286">Mon 2/2</text>
+                <text class="chart-label trend-axis-label" x="565" y="286">Mon 2/9</text>
+                <text class="chart-label trend-axis-label" x="665" y="286">Mon 2/16</text>
+                <text class="chart-label trend-axis-label" x="765" y="286">Mon 2/23</text>
+              </svg>
+              <div class="axis-labels">
+                <span>Early wave</span>
+                <span>Later wave</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Segment comparison</h3>
+            <div class="sub">Weighted satisfaction estimates with 95% confidence intervals for every segment</div>
+            <div class="segment-grid">
+              <div class="segment-card">
+                <div class="segment-head"><div class="segment-title">Region</div><div class="segment-chip">APAC leads</div></div>
+                <div class="segment-chart">
+                  <div class="segment-bar-row"><span>AMER</span><div class="bar-track"><div class="bar-value" style="width:76%;"></div><div class="ci-line" style="left:72%; width:8%;"></div></div><strong>76%</strong></div>
+                  <div class="segment-bar-row"><span>EMEA</span><div class="bar-track"><div class="bar-value" style="width:72%; background:linear-gradient(90deg,var(--teal),#7ce3d6);"></div><div class="ci-line" style="left:68%; width:8%;"></div></div><strong>72%</strong></div>
+                  <div class="segment-bar-row"><span>APAC</span><div class="bar-track"><div class="bar-value" style="width:81%; background:linear-gradient(90deg,var(--violet),#bcadff);"></div><div class="ci-line" style="left:77%; width:8%;"></div></div><strong>81%</strong></div>
+                </div>
+                <div class="ci-note">Whiskers show 95% CI</div>
+              </div>
+              <div class="segment-card">
+                <div class="segment-head"><div class="segment-title">Device</div><div class="segment-chip">Mobile gap</div></div>
+                <div class="segment-chart">
+                  <div class="segment-bar-row"><span>Desktop</span><div class="bar-track"><div class="bar-value" style="width:82%; background:linear-gradient(90deg,var(--orange),#ffd48c);"></div><div class="ci-line" style="left:79%; width:6%;"></div></div><strong>82%</strong></div>
+                  <div class="segment-bar-row"><span>Mobile</span><div class="bar-track"><div class="bar-value" style="width:71%;"></div><div class="ci-line" style="left:67%; width:8%;"></div></div><strong>71%</strong></div>
+                  <div class="segment-bar-row"><span>Tablet</span><div class="bar-track"><div class="bar-value" style="width:75%; background:linear-gradient(90deg,var(--pink),#ffb3d1);"></div><div class="ci-line" style="left:69%; width:12%;"></div></div><strong>75%</strong></div>
+                </div>
+                <div class="ci-note">Whiskers show 95% CI</div>
+              </div>
+              <div class="segment-card">
+                <div class="segment-head"><div class="segment-title">Age group</div><div class="segment-chip">35–54 leads</div></div>
+                <div class="segment-chart">
+                  <div class="segment-bar-row"><span>18–34</span><div class="bar-track"><div class="bar-value" style="width:74%; background:linear-gradient(90deg,var(--green),#8fe8aa);"></div><div class="ci-line" style="left:69%; width:10%;"></div></div><strong>74%</strong></div>
+                  <div class="segment-bar-row"><span>35–54</span><div class="bar-track"><div class="bar-value" style="width:80%; background:linear-gradient(90deg,var(--violet),#bcadff);"></div><div class="ci-line" style="left:76%; width:8%;"></div></div><strong>80%</strong></div>
+                  <div class="segment-bar-row"><span>55+</span><div class="bar-track"><div class="bar-value" style="width:76%;"></div><div class="ci-line" style="left:70%; width:12%;"></div></div><strong>76%</strong></div>
+                </div>
+                <div class="ci-note">Whiskers show 95% CI</div>
+              </div>
+              <div class="segment-card">
+                <div class="segment-head"><div class="segment-title">Tenure</div><div class="segment-chip">Long-term users</div></div>
+                <div class="segment-chart">
+                  <div class="segment-bar-row"><span>&lt;3 mo</span><div class="bar-track"><div class="bar-value" style="width:69%; background:linear-gradient(90deg,var(--teal),#7ce3d6);"></div><div class="ci-line" style="left:64%; width:10%;"></div></div><strong>69%</strong></div>
+                  <div class="segment-bar-row"><span>3–12 mo</span><div class="bar-track"><div class="bar-value" style="width:77%; background:linear-gradient(90deg,var(--orange),#ffd48c);"></div><div class="ci-line" style="left:73%; width:8%;"></div></div><strong>77%</strong></div>
+                  <div class="segment-bar-row"><span>1+ yr</span><div class="bar-track"><div class="bar-value" style="width:82%; background:linear-gradient(90deg,var(--pink),#ffb3d1);"></div><div class="ci-line" style="left:79%; width:6%;"></div></div><strong>82%</strong></div>
+                </div>
+                <div class="ci-note">Whiskers show 95% CI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-grid">
+          <div class="panel">
+            <h3>Driver analysis</h3>
+            <div class="sub">Relative importance, current performance, and recommended action for key satisfaction drivers</div>
+            <div class="analysis-summary">
+              <div class="summary-chip"><span>Model fit</span><strong>R² = .61</strong></div>
+              <div class="summary-chip"><span>Top driver</span><strong>Relevance</strong></div>
+              <div class="summary-chip"><span>Priority gap</span><strong>Freshness</strong></div>
+            </div>
+            <div class="driver-list">
+              <div class="driver-item">
+                <div>
+                  <div class="driver-name">Search relevance</div>
+                  <div class="driver-meta">Strongest relationship with overall satisfaction</div>
+                  <span class="action-tag">Protect strength</span>
+                </div>
+                <div class="driver-stats"><div><span>Imp.</span><strong>0.34</strong></div><div><span>Perf.</span><strong>81%</strong></div></div>
+              </div>
+              <div class="driver-item">
+                <div>
+                  <div class="driver-name">Result freshness</div>
+                  <div class="driver-meta">High importance with below-target performance</div>
+                  <span class="action-tag" style="color:#a45b00;background:#fff4df;">Improve first</span>
+                </div>
+                <div class="driver-stats"><div><span>Imp.</span><strong>0.28</strong></div><div><span>Perf.</span><strong>68%</strong></div></div>
+              </div>
+              <div class="driver-item">
+                <div>
+                  <div class="driver-name">Ease of filtering</div>
+                  <div class="driver-meta">Moderate impact; especially important on mobile</div>
+                  <span class="action-tag">Mobile follow-up</span>
+                </div>
+                <div class="driver-stats"><div><span>Imp.</span><strong>0.21</strong></div><div><span>Perf.</span><strong>72%</strong></div></div>
+              </div>
+              <div class="driver-item">
+                <div>
+                  <div class="driver-name">Page speed</div>
+                  <div class="driver-meta">Lower relative impact and stable performance</div>
+                  <span class="action-tag" style="color:#4b6378;background:#eef3f7;">Monitor</span>
+                </div>
+                <div class="driver-stats"><div><span>Imp.</span><strong>0.12</strong></div><div><span>Perf.</span><strong>76%</strong></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Open-text analysis + benchmark</h3>
+            <div class="sub">Coded themes, sentiment, representative quotes, and benchmark context</div>
+            <div class="analysis-summary">
+              <div class="summary-chip"><span>Coded comments</span><strong>1,084</strong></div>
+              <div class="summary-chip"><span>Negative sentiment</span><strong>31%</strong></div>
+              <div class="summary-chip"><span>Top theme</span><strong>Freshness</strong></div>
+            </div>
+            <div class="text-list">
+              <div class="text-item">
+                <div>
+                  <div class="theme-line"><span class="pill">Theme</span> Result freshness</div>
+                  <span class="theme-quote">“The results are useful, but several feel outdated.”</span>
+                  <div class="topic-meter"><span style="width:42%;"></span></div>
+                </div>
+                <strong>42%</strong>
+              </div>
+              <div class="text-item">
+                <div>
+                  <div class="theme-line"><span class="pill">Theme</span> Filter usability</div>
+                  <span class="theme-quote">“It takes too many clicks to narrow down the list.”</span>
+                  <div class="topic-meter"><span style="width:27%;background:linear-gradient(90deg,var(--teal),#7ce3d6);"></span></div>
+                </div>
+                <strong>27%</strong>
+              </div>
+              <div class="text-item">
+                <div>
+                  <div class="theme-line"><span class="pill">Theme</span> Result relevance</div>
+                  <span class="theme-quote">“The top results match what I searched for more often now.”</span>
+                  <div class="topic-meter"><span style="width:19%;background:linear-gradient(90deg,var(--orange),#ffd48c);"></span></div>
+                </div>
+                <strong>19%</strong>
+              </div>
+              <div class="text-item"><span><span class="pill">Insight</span> Freshness complaints are concentrated among mobile users and newer accounts.</span><strong>Follow up</strong></div>
+            </div>
+            <div class="quality-card">
+              <div class="quality-row"><span>Sentiment mix <span class="sentiment"><span style="background:var(--green);"></span><span style="background:var(--orange);"></span><span style="background:var(--pink);"></span></span></span><span class="quality-value">52% positive · 17% neutral · 31% negative</span></div>
+              <div class="quality-row"><span>External benchmark</span><span class="quality-value" style="color:var(--green);">78% vs 76% target</span></div>
+              <div class="quality-row"><span>Theme coding quality</span><span class="quality-value">κ = .82 · strong agreement</span></div>
+              <div class="quality-row"><span>Recommended follow-up</span><span class="quality-value">Freshness × mobile users</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  const baseWidth = 1440;
+  const baseHeight = 1300;
+  function resizeDashboard() {
+    const frame = document.querySelector('.frame');
+    if (!frame) return;
+    const scale = Math.min(0.70, Math.max(0.42, (window.innerWidth - 8) / baseWidth));
+    frame.style.transform = `scale(${scale})`;
+    document.body.style.height = `${Math.ceil(1300 * scale)}px`;
+  }
+  window.addEventListener('resize', resizeDashboard);
+  resizeDashboard();
+  const profiles = {
+    "Overall satisfaction": {label:"Overall Satisfaction", value:"78%", delta:"▲ 3 pts vs prior wave", gap:"+1.8", quality:"Good", band:"M 70 202 L 170 188 L 270 168 L 370 150 L 470 132 L 570 118 L 670 106 L 770 96 L 770 164 L 670 174 L 570 182 L 470 196 L 370 212 L 270 228 L 170 244 L 70 258 Z", trend:"M 70 232 L 170 216 L 270 198 L 370 181 L 470 166 L 570 150 L 670 140 L 770 129", avg:"M 70 228 L 170 210 L 270 196 L 370 178 L 470 162 L 570 148 L 670 138 L 770 126"},
+    "Trust score": {label:"Trust Score", value:"74%", delta:"▲ 2 pts vs prior wave", gap:"+0.9", quality:"Good", band:"M 70 218 L 170 202 L 270 190 L 370 176 L 470 158 L 570 146 L 670 132 L 770 120 L 770 182 L 670 190 L 570 198 L 470 210 L 370 224 L 270 238 L 170 250 L 70 264 Z", trend:"M 70 244 L 170 228 L 270 214 L 370 200 L 470 184 L 570 172 L 670 160 L 770 150", avg:"M 70 238 L 170 224 L 270 212 L 370 198 L 470 186 L 570 174 L 670 162 L 770 151"},
+    "Ease of use": {label:"Ease of Use", value:"81%", delta:"▲ 5 pts vs prior wave", gap:"+3.2", quality:"Good", band:"M 70 196 L 170 180 L 270 164 L 370 148 L 470 128 L 570 112 L 670 100 L 770 88 L 770 146 L 670 158 L 570 170 L 470 188 L 370 206 L 270 222 L 170 236 L 70 250 Z", trend:"M 70 224 L 170 208 L 270 192 L 370 176 L 470 158 L 570 140 L 670 128 L 770 116", avg:"M 70 220 L 170 206 L 270 190 L 370 176 L 470 160 L 570 146 L 670 132 L 770 118"},
+    "Recommendation intent": {label:"Recommend Intent", value:"69%", delta:"▼ 1 pt vs prior wave", gap:"−2.4", quality:"Watch", band:"M 70 222 L 170 214 L 270 204 L 370 196 L 470 190 L 570 184 L 670 176 L 770 170 L 770 236 L 670 240 L 570 246 L 470 250 L 370 256 L 270 262 L 170 270 L 70 278 Z", trend:"M 70 250 L 170 242 L 270 234 L 370 226 L 470 220 L 570 214 L 670 208 L 770 202", avg:"M 70 246 L 170 240 L 270 234 L 370 228 L 470 222 L 570 216 L 670 210 L 770 204"}
+  };
+  const sampleSizes = {"All Users":"n=1,240 / 10% RR", "New users":"n=420 / 8% RR", "Power users":"n=310 / 16% RR", "Mobile users":"n=505 / 9% RR"};
+  const timelineLabels = [
+    { short: "1/5", long: "Mon, Jan 5, 2026" },
+    { short: "1/12", long: "Mon, Jan 12, 2026" },
+    { short: "1/19", long: "Mon, Jan 19, 2026" },
+    { short: "1/26", long: "Mon, Jan 26, 2026" },
+    { short: "2/2", long: "Mon, Feb 2, 2026" },
+    { short: "2/9", long: "Mon, Feb 9, 2026" },
+    { short: "2/16", long: "Mon, Feb 16, 2026" },
+    { short: "2/23", long: "Mon, Feb 23, 2026" },
+  ];
+  const pointMeta = {
+    "Overall satisfaction": {
+      values: ["76%", "77%", "77%", "78%", "78%", "79%", "79%", "78%"],
+      cis: ["74%–78%", "75%–79%", "75%–79%", "76%–80%", "76%–80%", "77%–81%", "77%–81%", "76%–80%"],
+      responses: ["1,240", "1,232", "1,225", "1,218", "1,207", "1,198", "1,189", "1,180"],
+    },
+    "Trust score": {
+      values: ["71%", "72%", "72%", "73%", "73%", "74%", "74%", "74%"],
+      cis: ["69%–73%", "70%–74%", "70%–74%", "71%–75%", "71%–75%", "72%–76%", "72%–76%", "72%–76%"],
+      responses: ["1,240", "1,232", "1,225", "1,218", "1,207", "1,198", "1,189", "1,180"],
+    },
+    "Ease of use": {
+      values: ["78%", "79%", "79%", "80%", "80%", "81%", "81%", "81%"],
+      cis: ["76%–80%", "77%–81%", "77%–81%", "78%–82%", "78%–82%", "79%–83%", "79%–83%", "79%–83%"],
+      responses: ["1,240", "1,232", "1,225", "1,218", "1,207", "1,198", "1,189", "1,180"],
+    },
+    "Recommendation intent": {
+      values: ["70%", "70%", "69%", "69%", "69%", "69%", "69%", "69%"],
+      cis: ["68%–72%", "68%–72%", "67%–71%", "67%–71%", "67%–71%", "67%–71%", "67%–71%", "67%–71%"],
+      responses: ["1,240", "1,232", "1,225", "1,218", "1,207", "1,198", "1,189", "1,180"],
+    }
+  };
+  function pathToPoints(d) {
+    return [...d.matchAll(/[ML]\s*([\d.]+)\s+([\d.]+)/g)].map((match) => ({ x: match[1], y: match[2] }));
+  }
+  function ensureCircleTitle(circle, text) {
+    let title = circle.querySelector('title');
+    if (!title) {
+      title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      circle.appendChild(title);
+    }
+    title.textContent = text;
+    circle.setAttribute('aria-label', text.replace(/\n/g, ' | '));
+  }
+  function syncTrendPoints(estimate, d) {
+    const points = pathToPoints(d);
+    const meta = pointMeta[estimate] || {};
+    const circles = document.querySelectorAll('.trend-point');
+    circles.forEach((circle, index) => {
+      if (!points[index]) return;
+      circle.setAttribute('cx', points[index].x);
+      circle.setAttribute('cy', points[index].y);
+      const label = timelineLabels[index];
+      if (label && meta.values && meta.cis && meta.responses) {
+        ensureCircleTitle(circle, `${estimate}\n${label.long}\nEstimate: ${meta.values[index]}\n95% CI: ${meta.cis[index]}\nResponses: ${meta.responses[index]}`);
+      }
+    });
+    document.querySelectorAll('.trend-axis-label').forEach((label, index) => {
+      if (timelineLabels[index]) label.textContent = timelineLabels[index].short;
+    });
+  }
+  function update() {
+    const estimate = document.getElementById('estimateSelect').value;
+    const wave = document.getElementById('waveSelect').value;
+    const segment = document.getElementById('segmentSelect').value;
+    const region = document.getElementById('regionSelect').value;
+    const p = profiles[estimate];
+    document.getElementById('primaryMetricLabel').textContent = p.label;
+    document.getElementById('primaryMetricValue').textContent = p.value;
+    document.getElementById('primaryMetricDelta').textContent = p.delta;
+    document.getElementById('gapValue').textContent = p.gap;
+    document.getElementById('qualityValue').textContent = p.quality;
+    document.getElementById('qualityDelta').textContent = sampleSizes[segment] || sampleSizes['All Users'];
+    document.getElementById('volumeValue').textContent = segment === 'All Users' ? '12.4K' : (segment === 'Mobile users' ? '5.1K' : segment === 'New users' ? '4.2K' : '3.1K');
+    document.getElementById('volumeDelta').textContent = wave + ' · ' + region;
+    document.getElementById('confidenceBand').setAttribute('d', p.band);
+    document.getElementById('trendLine').setAttribute('d', p.trend);
+    document.getElementById('avgLine').setAttribute('d', p.avg);
+    syncTrendPoints(estimate, p.trend);
+    document.getElementById('interactionNote').textContent = `Interactive example: currently showing ${estimate.toLowerCase()} for ${segment} in ${region}, ${wave.toLowerCase()}.`;
+  }
+  ['estimateSelect','waveSelect','segmentSelect','regionSelect'].forEach(id => document.getElementById(id).addEventListener('change', update));
+  update();
+}());
+</script>
+
+</body>
+</html>

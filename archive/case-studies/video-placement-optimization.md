@@ -1,11 +1,14 @@
 ---
 title: "Data-Driven Optimization of Video Placement in Search Results"
-date: 2025-02-01
-draft: false
+date: 2026-05-15
+draft: true
+build:
+  render: never
+  list: never
 tags: ["logistic regression", "interaction effects", "content strategy", "log-linked survey analysis", "intent segmentation"]
 categories: ["Product Research"]
 icon: "🎬"
-weight: 5
+weight: 6
 ---
 
 ## Context

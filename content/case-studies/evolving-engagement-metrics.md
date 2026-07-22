@@ -1,11 +1,11 @@
 ---
 title: "Evolving Engagement Metrics Through User Feedback Calibration"
-date: 2025-01-01
+date: 2026-05-01
 draft: false
 tags: ["metric evaluation", "gap analysis", "passive engagement", "growth audiences", "metric framework"]
 categories: ["Measurement & Frameworks"]
 icon: "📈"
-weight: 6
+weight: 2
 ---
 
 ## Context
@@ -20,24 +20,24 @@ Where does the engagement metric systematically diverge from actual user satisfa
 
 Conducted a systematic gap analysis between direct user satisfaction signals (from inline surveys) and the engagement metric:
 
-- **Cross-intent gap analysis**: Compared satisfaction ratings against engagement flags across all search intents to identify systematic divergence patterns
-- **Demographic and behavioral profiling**: Characterized users whose satisfaction was consistently missed by the metric — who they were, how they searched, and why the metric failed for them
-- **Passive vs. active engagement analysis**: Investigated whether users in "satisfied but no engagement" sessions were actually consuming content through passive behaviors (reading, watching, browsing) that the metric didn't count
-- **Metric evolution framework**: Proposed concrete modifications to the metric based on gap analysis findings
+- **Cross-intent gap analysis**: Compared satisfaction ratings against engagement flags across all search intents to identify systematic divergence patterns.
+- **Demographic and behavioral profiling**: Characterized users whose satisfaction was consistently missed by the metric — who they were, how they searched, and why the metric failed for them.
+- **Passive vs. active engagement analysis**: Investigated whether users in "satisfied but no engagement" sessions were actually consuming content through passive behaviors (reading, watching, browsing) that the metric didn't count.
+- **Metric evolution framework**: Proposed concrete modifications to the metric based on gap analysis findings.
 
 ## Key Findings
 
-1. **Systematic underestimation for specific intents**: The engagement metric underestimated quality primarily for information-seeking and discovery searches — intents satisfied through passive consumption (reading, watching, browsing) rather than explicit actions (clicking, sharing)
-2. **Growth audiences disproportionately affected**: Users whose satisfaction the metric missed were disproportionately from key growth audiences: younger users, emerging markets, and infrequent searchers — meaning the metric was least accurate for the users the platform most needed to retain
-3. **Passive engagement was real engagement**: Users in "satisfied but no engagement" sessions showed meaningful passive consumption patterns — the metric was calling these sessions failures when users considered them successes
-4. **Concrete evolution path**: Proposed three improvements: incorporating passive engagement signals (scroll depth, dwell time, content consumption), adding depth/breadth dimensions to the metric, and using time-based efficiency signals
+1. **Systematic underestimation for specific intents**: The engagement metric underestimated quality primarily for information-seeking and discovery searches — intents satisfied through passive consumption (reading, watching, browsing) rather than explicit actions (clicking, sharing).
+2. **Growth audiences disproportionately affected**: Users whose satisfaction the metric missed were disproportionately from key growth audiences: younger users, emerging markets, and infrequent searchers — meaning the metric was least accurate for the users the platform most needed to retain.
+3. **Passive engagement was real engagement**: Users in "satisfied but no engagement" sessions showed meaningful passive consumption patterns — the metric was calling these sessions failures when users considered them successes.
+4. **Concrete evolution path**: Proposed three improvements: incorporating passive engagement signals (scroll depth, dwell time, content consumption), adding depth/breadth dimensions to the metric, and using time-based efficiency signals.
 
 ## Impact
 
-- **Reframed what "engagement" means**: Shifted the team's understanding from "engagement = explicit action" to "engagement = value delivery, which can be active or passive"
-- **Established the inline survey as calibration ground truth**: The satisfaction survey became the standard reference for evaluating whether engagement metrics were accurately capturing user value
-- **Protected growth audiences**: By revealing that the metric was least accurate for growth-priority segments, prevented product optimizations that would have ignored these users
-- **Informed metric roadmap**: The proposed metric evolution framework was adopted as the blueprint for the next iteration of the quality metric
+- **Reframed what "engagement" means**: Shifted the team's understanding from "engagement = explicit action" to "engagement = value delivery, which can be active or passive".
+- **Established the inline survey as calibration ground truth**: The satisfaction survey became the standard reference for evaluating whether engagement metrics were accurately capturing user value.
+- **Protected growth audiences**: By revealing that the metric was least accurate for growth-priority segments, prevented product optimizations that would have ignored these users.
+- **Informed metric roadmap**: The proposed metric evolution framework was adopted as the blueprint for the next iteration of the quality metric.
 
 ## Methods & Tools
 

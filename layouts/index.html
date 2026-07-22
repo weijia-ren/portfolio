@@ -15,21 +15,13 @@
   <div class="container">
     <h2>Case Studies</h2>
     <div class="cs-list cs-list-home">
-      {{ range first 3 (where .Site.RegularPages "Section" "case-studies") }}
-      <a href="{{ .Permalink }}" class="cs-card">
-        <div class="cs-card-number">{{ .Weight }}</div>
-        <div class="cs-card-content">
+      {{ range (where (where .Site.RegularPages "Section" "case-studies") "Weight" "in" (slice 1 2 6)) }}
+      <a href="{{ .Permalink }}" class="cs-card cs-card-home">
+        <div class="cs-card-content cs-card-content-home">
           <div class="cs-card-top">
             {{ with .Params.categories }}<span class="cs-category">{{ index . 0 }}</span>{{ end }}
           </div>
           <h3>{{ .Title }}</h3>
-          <p class="cs-summary">{{ .Summary | truncate 140 }}</p>
-          <div class="cs-card-bottom">
-            <div class="cs-tags">
-              {{ range first 3 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
-            </div>
-            <span class="cs-read-more">Read →</span>
-          </div>
         </div>
       </a>
       {{ end }}
