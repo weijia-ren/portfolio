@@ -26,6 +26,10 @@ Designed a detailed quality survey with layered follow-up questions probing the 
 - **Expectation mapping**: Mapped distinct quality expectations per motivation segment to identify what "good" looks like for different types of searches.
 - **Triangulation with behavioral data**: Cross-referenced stated dissatisfaction reasons with behavioral signals (dwell time, scroll depth, reformulation) to separate real quality problems from measurement artifacts.
 
+## Framework Overview
+
+{{< search-quality-framework >}}
+
 ## Key Findings
 
 1. **Quality expectations are motivation-dependent**: Different search types demanded fundamentally different result attributes — high precision for people searches, variety and freshness for discovery searches, exact-match accuracy for refinding.
