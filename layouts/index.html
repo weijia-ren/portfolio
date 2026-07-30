@@ -1,7 +1,8 @@
 {{ define "main" }}
 <section class="hero">
   <div class="container">
-    <img src="{{ "images/logo-prominent-v2.png" | relURL }}" alt="{{ .Site.Params.author }}" class="hero-logo">
+    {{ $logoURL := printf "%s?v=%d" ("images/logo-prominent-v2.png" | relURL) now.Unix }}
+    <img src="{{ $logoURL }}" alt="{{ .Site.Params.author }}" class="hero-logo">
     <p class="tagline">{{ .Site.Params.tagline }}</p>
     <p class="hero-description">{{ .Site.Params.description }}</p>
     <div class="hero-cta">

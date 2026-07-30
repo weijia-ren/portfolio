@@ -1,7 +1,8 @@
 <header class="site-header">
   <div class="container">
+    {{ $logoURL := printf "%s?v=%d" ("images/logo-prominent-v2.png" | relURL) now.Unix }}
     <a href="{{ .Site.BaseURL }}" class="site-logo">
-      <img src="{{ "images/logo-prominent-v2.png" | relURL }}" alt="{{ .Site.Params.author }}" class="logo-img">
+      <img src="{{ $logoURL }}" alt="{{ .Site.Params.author }}" class="logo-img">
     </a>
     <nav class="site-nav">
       {{ range .Site.Menus.main }}
