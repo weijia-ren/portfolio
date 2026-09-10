@@ -37,7 +37,3 @@ Statistics helps us estimate unknown quantities and make decisions under uncerta
 - Equating statistical significance with practical importance
 - Ignoring multiplicity when many metrics or segments are tested
 - Treating missing data and outliers as purely technical cleanup instead of validity risks
-
-## Watermark note
-
-The downloadable PDF includes a small footer watermark with my website link so the file can travel while still pointing readers back to the source.
