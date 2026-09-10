@@ -1,5 +1,5 @@
 ---
-title: "Regression Model Selection"
+title: "Interview Prep Series: Regression Model Selection"
 date: 2026-09-09
 draft: false
 layout: "poster"
