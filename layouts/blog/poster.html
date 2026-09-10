@@ -17,9 +17,13 @@
     </div>
   </div>
 
-  {{ with .Params.posterHtml }}
+  {{ if .Params.posterHtml }}
   <div class="poster-embed-wrap">
-    <iframe src="{{ . | relURL }}" title="{{ $.Title }}" class="poster-embed"></iframe>
+    <iframe src="{{ .Params.posterHtml | relURL }}" title="{{ .Title }}" class="poster-embed"></iframe>
+  </div>
+  {{ else if .Params.posterPdf }}
+  <div class="poster-embed-wrap">
+    <iframe src="{{ .Params.posterPdf | relURL }}" title="{{ .Title }}" class="poster-embed"></iframe>
   </div>
   {{ end }}
 

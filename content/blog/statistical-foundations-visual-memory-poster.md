@@ -1,6 +1,6 @@
 ---
 title: "Interview Prep Series: Statistical Foundations"
-date: 2026-09-09
+date: 2026-09-04
 draft: false
 layout: "poster"
 posterHtml: "posters/interview-prep/statistical-foundations-visual-memory-posters.html"
