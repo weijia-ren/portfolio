@@ -14,46 +14,20 @@
 
 <section class="home-section alt-bg">
   <div class="container">
-    <div class="section-header-flex">
-      <div>
-        <h2>Interactive Apps & Tools</h2>
-        <p class="section-intro">Live applications and interactive prototypes designed and built to solve user needs.</p>
-      </div>
-      <p class="section-more"><a href="{{ "projects/" | relURL }}">View all projects &rarr;</a></p>
-    </div>
-
-    <div class="projects-grid">
-      {{ range first 2 (where .Site.RegularPages "Section" "projects") }}
-      <div class="project-card">
-        <div class="project-card-header">
-          <div class="project-card-icon-wrap">
-            <img src="{{ "images/health-tracker-icon.png" | relURL }}" alt="{{ .Title }}" class="project-card-icon">
-          </div>
-          <div class="project-card-title-area">
-            <div class="project-badges">
-              {{ with .Params.status }}<span class="badge badge-live">{{ . }}</span>{{ end }}
-              {{ with .Params.categories }}<span class="badge badge-cat">{{ index . 0 }}</span>{{ end }}
-            </div>
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          </div>
+    <h2>Interactive Apps & Tools</h2>
+    <div class="apps-list-minimal">
+      {{ range (where .Site.RegularPages "Section" "projects") }}
+      <a href="{{ .Permalink }}" class="app-card-minimal">
+        <img src="{{ "images/health-tracker-icon.png" | relURL }}" alt="{{ .Title }}" class="app-icon-minimal">
+        <div class="app-info-minimal">
+          <h3>{{ .Params.short_title | default .Title }}</h3>
+          <p>{{ .Params.short_desc | default .Summary }}</p>
         </div>
-
-        <div class="project-card-body">
-          <p class="project-summary">{{ .Params.summary | default .Summary }}</p>
-          <div class="project-tags">
-            {{ range first 4 .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
-          </div>
-        </div>
-
-        <div class="project-card-actions">
-          {{ with .Params.appUrl }}
-          <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Launch App ↗</a>
-          {{ end }}
-          <a href="{{ .Permalink }}" class="btn btn-secondary btn-sm">Project Details →</a>
-        </div>
-      </div>
+        <span class="app-arrow-minimal">&rarr;</span>
+      </a>
       {{ end }}
     </div>
+    <p class="section-more"><a href="{{ "projects/" | relURL }}">View all projects &rarr;</a></p>
   </div>
 </section>
 

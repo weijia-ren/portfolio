@@ -570,6 +570,66 @@ body {
   gap: 2rem;
   margin-top: 1.5rem;
 }
+
+/* === Minimal Apps list on Homepage === */
+.apps-list-minimal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.app-card-minimal {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.15rem 1.4rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.app-card-minimal:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.app-icon-minimal {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+.app-info-minimal {
+  flex-grow: 1;
+}
+.app-info-minimal h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--color-text);
+}
+.app-card-minimal:hover .app-info-minimal h3 {
+  color: var(--color-accent);
+}
+.app-info-minimal p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.45;
+}
+.app-arrow-minimal {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.app-card-minimal:hover .app-arrow-minimal {
+  transform: translateX(3px);
+}
 .project-card {
   background: var(--color-bg);
   border: 1px solid var(--color-border);

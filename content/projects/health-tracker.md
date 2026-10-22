@@ -1,5 +1,7 @@
 ---
 title: "Health Tracker — Daily Habit & Check-in PWA"
+short_title: "Health Tracker"
+short_desc: "A mobile-first, privacy-focused daily check-in tool with 100% on-device data storage."
 date: 2026-09-15
 draft: false
 tags: ["Health Tech", "Behavioral Design", "PWA", "Local-First", "JavaScript", "Mobile-First"]
