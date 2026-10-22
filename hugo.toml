@@ -1,11 +1,11 @@
 baseURL = "https://weijia-ren.github.io/portfolio/"
 locale = "en-us"
-title = "Weijia (Wren) Ren — Quantitative UXR & Data Strategist"
+title = "Weijia Ren — Quantitative UXR & Data Strategist"
 
 # No external theme — using custom layouts in /layouts/
 [params]
   description = "PhD-trained quantitative researcher focused on product insight, measurement, AI evaluation, and decision intelligence."
-  author = "Weijia (Wren) Ren"
+  author = "Weijia Ren"
   tagline = "Quantitative Research · Behavioral Data · Decision Intelligence"
   # Set to true to show Layer B (knowledge base) in navigation
   showKnowledgeBase = true
