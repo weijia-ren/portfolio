@@ -9,7 +9,7 @@ categories: ["Browser Extensions"]
 icon: "images/duplicate-tab-closer-icon.svg"
 driveUrl: "https://drive.google.com/drive/folders/1oC6DV8RKJDyfto1l9Wi1tOZInnJrI3Iz"
 status: "Extension"
-weight: 3
+weight: 4
 summary: "A productivity-focused Chrome extension designed to combat tab overload. It intelligently identifies duplicate URLs across open browser windows in real time, automatically closing redundant tabs to reduce memory consumption and cognitive fatigue."
 ---
 
@@ -67,3 +67,4 @@ Like all tools in this portfolio, **Duplicate Tab Closer** is architected with s
   <p>Access the source files and package directly via Google Drive.</p>
   <a href="https://drive.google.com/drive/folders/1oC6DV8RKJDyfto1l9Wi1tOZInnJrI3Iz" target="_blank" rel="noopener" class="btn btn-primary">Open Google Drive Folder ↗</a>
 </div>
+

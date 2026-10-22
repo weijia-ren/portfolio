@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#312e81" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bgGrad)" filter="url(#shadow)" />
+
+  <!-- Background Orbit Rings & Stars -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="6" stroke-dasharray="16 12"/>
+  <circle cx="120" cy="140" r="12" fill="#fde047" opacity="0.8"/>
+  <circle cx="410" cy="180" r="8" fill="#fde047" opacity="0.9"/>
+  <circle cx="150" cy="380" r="10" fill="#fde047" opacity="0.8"/>
+  <circle cx="390" cy="370" r="14" fill="#fde047" opacity="0.7"/>
+
+  <!-- Centered Rocket Emoji / Graphic -->
+  <g transform="translate(156, 140) scale(4.2)">
+    <!-- Main Rocket Body -->
+    <path d="M 24,0 C 14,8 8,24 8,36 C 8,42 12,46 16,48 L 32,48 C 36,46 40,42 40,36 C 40,24 34,8 24,0 Z" fill="#ffffff" />
+    <!-- Rocket Nosecone -->
+    <path d="M 24,0 C 18,6 15,14 15,18 L 33,18 C 33,14 30,6 24,0 Z" fill="#ef4444" />
+    <!-- Porothole Window -->
+    <circle cx="24" cy="28" r="6" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+    <!-- Fins -->
+    <path d="M 8,32 L 0,44 C 4,46 10,44 12,42 Z" fill="#ef4444" />
+    <path d="M 40,32 L 48,44 C 44,46 38,44 36,42 Z" fill="#ef4444" />
+    <!-- Thruster Flame -->
+    <path d="M 18,48 L 24,62 L 30,48 Z" fill="#f59e0b" />
+    <path d="M 20,48 L 24,56 L 28,48 Z" fill="#fde047" />
+  </g>
+</svg>
