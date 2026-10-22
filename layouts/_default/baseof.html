@@ -11,11 +11,11 @@
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Params.author }}{{ end }}">
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ "images/profile-headshot.jpg" | absURL }}">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="{{ "images/logo-prominent-v2.png" | absURL }}">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Params.author }}{{ end }}">
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <meta name="twitter:image" content="{{ "images/profile-headshot.jpg" | absURL }}">
+  <meta name="twitter:image" content="{{ "images/logo-prominent-v2.png" | absURL }}">
 
   {{ $faviconURL := printf "%s?v=%d" ("favicon-prominent-v2.png" | relURL) now.Unix }}
   <link rel="icon" type="image/png" sizes="256x256" href="{{ $faviconURL }}">

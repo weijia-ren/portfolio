@@ -1,9 +1,8 @@
 {{ define "main" }}
 <section class="hero">
   <div class="container">
-    {{ $photoURL := printf "%s?v=%d" ("images/profile-headshot.jpg" | relURL) now.Unix }}
-    <img src="{{ $photoURL }}" alt="{{ .Site.Params.author }}" class="hero-photo">
-    <h1>{{ .Site.Params.author }}</h1>
+    {{ $logoURL := printf "%s?v=%d" ("images/logo-prominent-v2.png" | relURL) now.Unix }}
+    <img src="{{ $logoURL }}" alt="{{ .Site.Params.author }}" class="hero-logo">
     <p class="tagline">{{ .Site.Params.tagline }}</p>
     <p class="hero-description">{{ .Site.Params.description }}</p>
     <div class="hero-cta">

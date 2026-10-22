@@ -4,12 +4,8 @@ layout: "page"
 type: "page"
 ---
 
-<div style="display: flex; gap: 2rem; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap;">
-  <img src="/portfolio/images/profile-headshot.jpg" alt="Weijia (Wren) Ren" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-border); box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-  <div>
-    <h2 style="margin: 0 0 0.5rem; border: none; padding: 0;">Weijia (Wren) Ren, Ph.D.</h2>
-    <p style="margin: 0; color: var(--color-text-light); font-size: 1.05rem;">Quantitative UXR · Behavioral Data Scientist · Decision Intelligence</p>
-  </div>
+<div style="margin-bottom: 2rem;">
+  <p style="margin: 0; color: var(--color-text-light); font-size: 1.1rem; font-weight: 500;">Quantitative UXR · Behavioral Data Scientist · Decision Intelligence</p>
 </div>
 
 ## Who I Am

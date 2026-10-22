@@ -66,3 +66,4 @@ Privacy is treated as an architectural requirement rather than a policy document
   <p>The application is live, free, and runs entirely in your browser without requiring an account.</p>
   <a href="https://health-tracker-app-beta.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary">Open Health Tracker Beta ↗</a>
 </div>
+
