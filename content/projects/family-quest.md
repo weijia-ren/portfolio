@@ -7,22 +7,22 @@ draft: false
 tags: ["EdTech", "Behavioral Design", "Gamification", "PWA", "iPad-Optimized", "JavaScript"]
 categories: ["Web Applications"]
 icon: "images/family-quest-icon.svg"
-appUrl: "https://family-quest-kids.netlify.app"
+appUrl: "https://weijia-ren.github.io/family-quest/"
 githubUrl: "https://github.com/weijia-ren/family-quest"
-status: "Live PWA"
+status: "Interactive Demo"
 weight: 2
 summary: "A gamified, iPad-optimized Progressive Web App designed for families to manage daily homework, music practice, routines, and star rewards. Features a 2-step review loop, reward bank, and interactive 30-day habit analytics."
 ---
 
 <div class="project-hero-card">
   <div class="project-hero-badges">
-    <span class="badge badge-live">Live Production App</span>
-    <span class="badge">iPad & Tablet PWA</span>
+    <span class="badge badge-live">Interactive Demo PWA</span>
+    <span class="badge">iPad & Tablet Optimized</span>
     <span class="badge">Behavioral Gamification</span>
   </div>
   <p class="project-tagline"><strong>Turn daily homework and practice into an engaging family adventure.</strong></p>
   <div class="project-actions">
-    <a href="https://family-quest-kids.netlify.app" target="_blank" rel="noopener" class="btn btn-primary">Launch Live App ↗</a>
+    <a href="https://weijia-ren.github.io/family-quest/" target="_blank" rel="noopener" class="btn btn-primary">Launch Interactive Demo ↗</a>
     <a href="https://github.com/weijia-ren/family-quest" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Repo ↗</a>
   </div>
 </div>
@@ -55,19 +55,20 @@ Managing children's daily routines, school homework, and instrumental practice i
 | :--- | :--- |
 | **PWA & Offline Capability** | Configured with Web App Manifest and Service Worker for full-screen standalone installation on iPad and iPhone via Safari "Add to Home Screen". |
 | **Touch-First Design** | High-contrast, playful UI optimized for small hands and tablet interactions with responsive touch states. |
-| **Family Privacy & Security** | Local client-side storage architecture with optional 4-digit Parent PIN protection for reward settings. |
-| **Edge Hosting** | Continuous automated deployment via Netlify Edge CDN. |
+| **Family Privacy & Security** | 100% Local-First client architecture. Public demo runs entirely isolated in browser local storage (Parent PIN: `1234`). |
+| **Interactive Demo** | Single child profile ("Kid") with generic daily missions (homework, reading, chores) for clean public demonstration. |
 
 ## Technology Stack
 
 - **Frontend**: Semantic HTML5, CSS3 Custom Properties (responsive mobile & tablet layout), Modern ES6+ JavaScript.
 - **Progressive Web App**: Custom Web App Manifest (`manifest.json`) and caching Service Worker (`service-worker.js`).
-- **Hosting & CI/CD**: Netlify.
+- **Deployment**: GitHub Pages & Edge CDN.
 
 ---
 
 <div class="project-footer-cta">
   <h3>Try Family Quest</h3>
-  <p>The app is live and fully functional on desktop, iPad, and mobile browsers.</p>
-  <a href="https://family-quest-kids.netlify.app" target="_blank" rel="noopener" class="btn btn-primary">Open Family Quest ↗</a>
+  <p>The interactive demo runs entirely in your browser with generic missions and sample parent review flow (PIN: 1234).</p>
+  <a href="https://weijia-ren.github.io/family-quest/" target="_blank" rel="noopener" class="btn btn-primary">Open Family Quest Demo ↗</a>
 </div>
+
