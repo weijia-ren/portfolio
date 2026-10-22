@@ -18,7 +18,11 @@
     <div class="apps-list-minimal">
       {{ range (where .Site.RegularPages "Section" "projects") }}
       <a href="{{ .Permalink }}" class="app-card-minimal">
-        <img src="{{ "images/health-tracker-icon.png" | relURL }}" alt="{{ .Title }}" class="app-icon-minimal">
+        {{ with .Params.icon }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="app-icon-minimal">
+        {{ else }}
+        <span class="app-icon-minimal app-icon-placeholder">📱</span>
+        {{ end }}
         <div class="app-info-minimal">
           <h3>{{ .Params.short_title | default .Title }}</h3>
           <p>{{ .Params.short_desc | default .Summary }}</p>

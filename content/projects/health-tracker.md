@@ -6,7 +6,7 @@ date: 2026-09-15
 draft: false
 tags: ["Health Tech", "Behavioral Design", "PWA", "Local-First", "JavaScript", "Mobile-First"]
 categories: ["Web Applications"]
-icon: "🌱"
+icon: "images/health-tracker-icon.png"
 appUrl: "https://health-tracker-app-beta.netlify.app/"
 status: "Live Beta"
 weight: 1

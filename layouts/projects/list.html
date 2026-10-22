@@ -16,10 +16,10 @@
     <div class="project-card">
       <div class="project-card-header">
         <div class="project-card-icon-wrap">
-          {{ if fileExists "static/images/health-tracker-icon.png" }}
-          <img src="{{ "images/health-tracker-icon.png" | relURL }}" alt="{{ .Title }}" class="project-card-icon">
+          {{ with .Params.icon }}
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="project-card-icon">
           {{ else }}
-          <span class="project-card-emoji">{{ .Params.icon | default "💻" }}</span>
+          <span class="project-card-emoji">💻</span>
           {{ end }}
         </div>
         <div class="project-card-title-area">
