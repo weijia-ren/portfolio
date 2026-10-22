@@ -8,6 +8,7 @@ tags: ["Health Tech", "Behavioral Design", "PWA", "Local-First", "JavaScript", "
 categories: ["Web Applications"]
 icon: "images/health-tracker-icon.png"
 appUrl: "https://health-tracker-app-beta.netlify.app/"
+githubUrl: "https://github.com/weijia-ren/health-tracker"
 status: "Live Beta"
 weight: 1
 summary: "A mobile-first, privacy-focused daily health tracking tool built with a local-first architecture. Enables zero-friction tracking across sleep, nutrition, exercise, and recovery with 100% on-device data storage."
@@ -22,6 +23,7 @@ summary: "A mobile-first, privacy-focused daily health tracking tool built with 
   <p class="project-tagline"><strong>Open once a day. Tap a few check-ins. Notice your patterns over time.</strong></p>
   <div class="project-actions">
     <a href="https://health-tracker-app-beta.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary">Launch Live App ↗</a>
+    <a href="https://github.com/weijia-ren/health-tracker" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Repo ↗</a>
   </div>
 </div>
 

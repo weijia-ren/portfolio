@@ -40,6 +40,9 @@
       </div>
 
       <div class="project-card-actions">
+        {{ with .Params.githubUrl }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">GitHub ↗</a>
+        {{ end }}
         {{ with .Params.appUrl }}
         <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Launch App ↗</a>
         {{ end }}
