@@ -13,11 +13,12 @@
 
   <div class="projects-grid">
     {{ range .Pages }}
+    {{ $item := . }}
     <div class="project-card">
       <div class="project-card-header">
         <div class="project-card-icon-wrap">
           {{ with .Params.icon }}
-          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="project-card-icon">
+          <img src="{{ . | relURL }}" alt="{{ $item.Title }}" class="project-card-icon">
           {{ else }}
           <span class="project-card-emoji">💻</span>
           {{ end }}

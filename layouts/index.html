@@ -17,9 +17,10 @@
     <h2>Interactive Apps & Tools</h2>
     <div class="apps-list-minimal">
       {{ range (where .Site.RegularPages "Section" "projects") }}
+      {{ $project := . }}
       <a href="{{ .Permalink }}" class="app-card-minimal">
         {{ with .Params.icon }}
-        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="app-icon-minimal">
+        <img src="{{ . | relURL }}" alt="{{ $project.Title }}" class="app-icon-minimal">
         {{ else }}
         <span class="app-icon-minimal app-icon-placeholder">📱</span>
         {{ end }}
