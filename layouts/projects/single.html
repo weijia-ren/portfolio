@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article class="page-content project-single">
+  <div class="container container-narrow">
+    <div class="breadcrumb">
+      <a href="{{ "projects/" | relURL }}">Projects</a> &gt; <span>{{ .Title }}</span>
+    </div>
+
+    <div class="project-header">
+      <div class="project-header-top">
+        <div class="project-badges">
+          {{ with .Params.status }}<span class="badge badge-live">{{ . }}</span>{{ end }}
+          {{ with .Params.categories }}<span class="badge badge-cat">{{ index . 0 }}</span>{{ end }}
+        </div>
+        {{ with .Params.appUrl }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Launch Live App ↗</a>
+        {{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      <div class="post-meta">
+        {{ with .Params.tags }}
+        <div class="card-tags">
+          {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="project-content">
+      {{ .Content }}
+    </div>
+
+    <div class="case-study-nav">
+      <a href="{{ "projects/" | relURL }}">&larr; Back to All Projects</a>
+    </div>
+  </div>
+</article>
+{{ end }}

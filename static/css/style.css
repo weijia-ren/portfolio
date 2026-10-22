@@ -51,9 +51,10 @@ body {
   gap: 0.5rem;
 }
 .logo-img {
-  width: 96px;
-  height: 96px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
+  object-fit: contain;
 }
 .site-nav { display: flex; gap: 1.75rem; }
 .site-nav a {
@@ -553,6 +554,186 @@ body {
 }
 .kb-section { margin-bottom: 2.5rem; }
 .kb-section h2 { font-size: 1.3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border); }
+
+/* === Projects & Apps === */
+.projects-header {
+  margin-bottom: 2.5rem;
+}
+.projects-intro {
+  margin-bottom: 2.5rem;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.project-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.08);
+}
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.project-card-icon-wrap {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+.project-card-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-card-title-area {
+  flex-grow: 1;
+}
+.project-card-title-area h2, .project-card-title-area h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0.35rem 0 0;
+}
+.project-card-title-area a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.project-card-title-area a:hover {
+  color: var(--color-accent);
+}
+.project-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--color-bg-alt);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+}
+.badge-live {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+.badge-cat {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #bfdbfe;
+}
+.project-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.project-summary {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.project-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Single project page enhancements */
+.project-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.project-hero-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 2rem;
+  margin: 1.5rem 0 2.5rem;
+  text-align: center;
+}
+.project-hero-badges {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.project-tagline {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+.project-footer-cta {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2.5rem 0;
+}
+.project-footer-cta h3 {
+  margin-bottom: 0.5rem;
+}
+.project-footer-cta p {
+  color: var(--color-text-light);
+  margin-bottom: 1.25rem;
+}
 
 /* === Footer === */
 .site-footer {

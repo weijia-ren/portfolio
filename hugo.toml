@@ -1,17 +1,17 @@
 baseURL = "https://weijia-ren.github.io/portfolio/"
-languageCode = "en-us"
-title = "Wren — Quantitative UXR & Data Strategist"
+locale = "en-us"
+title = "Weijia (Wren) Ren — Quantitative UXR & Data Strategist"
 
 # No external theme — using custom layouts in /layouts/
 [params]
   description = "PhD-trained quantitative researcher focused on product insight, measurement, AI evaluation, and decision intelligence."
-  author = "Wren"
+  author = "Weijia (Wren) Ren"
   tagline = "Quantitative Research · Behavioral Data · Decision Intelligence"
   # Set to true to show Layer B (knowledge base) in navigation
   showKnowledgeBase = true
   # Social links
   linkedin = "https://www.linkedin.com/in/weijiaren"
-  github = ""
+  github = "https://github.com/weijia-ren"
   googlescholar = ""
   email = "osurwj@gmail.com"
 
@@ -32,21 +32,25 @@ title = "Wren — Quantitative UXR & Data Strategist"
     url = "/about/"
     weight = 2
   [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 3
+  [[menu.main]]
     name = "Case Studies"
     url = "/case-studies/"
-    weight = 3
+    weight = 4
   [[menu.main]]
     name = "Competencies"
     url = "/competencies/"
-    weight = 4
+    weight = 5
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 5
+    weight = 6
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 6
+    weight = 7
 
 [taxonomies]
   tag = "tags"

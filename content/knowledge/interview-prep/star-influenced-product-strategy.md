@@ -1,7 +1,7 @@
 ---
 title: "STAR Story — Influenced Product Strategy with Data"
 date: 2025-01-01
-draft: false
+draft: true
 tags: ["STAR", "impact", "strategy", "leadership"]
 ---
 
