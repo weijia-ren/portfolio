@@ -10,7 +10,7 @@ icon: "images/agentloop-icon.svg"
 appUrl: "https://weijia-ren.github.io/agentloop-realestate/"
 githubUrl: "https://github.com/weijia-ren/agentloop-realestate"
 status: "Prototype"
-weight: 3
+weight: 2
 summary: "A shared web platform for real estate agents and clients that centralizes active listing status, organizes milestone communication, and drafts weekly AI deal summaries for agent review."
 ---
 

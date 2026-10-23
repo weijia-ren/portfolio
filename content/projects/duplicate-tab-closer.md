@@ -9,7 +9,7 @@ categories: ["Browser Extensions"]
 icon: "images/duplicate-tab-closer-icon.svg"
 driveUrl: "https://drive.google.com/drive/folders/1oC6DV8RKJDyfto1l9Wi1tOZInnJrI3Iz"
 status: "Extension"
-weight: 4
+weight: 3
 summary: "A productivity-focused Chrome extension designed to combat tab overload. It intelligently identifies duplicate URLs across open browser windows in real time, automatically closing redundant tabs to reduce memory consumption and cognitive fatigue."
 ---
 
